@@ -1,0 +1,154 @@
+/* ============================
+   PROJECT CARD — Clean Piltover style
+   ============================ */
+.cabinetWrapper {
+  position: relative;
+  width: 190px;
+  flex-shrink: 0;
+  animation: pilt-card-up 0.6s ease-out both;
+  transition: transform 0.3s ease;
+}
+
+.cabinetWrapper:hover {
+  transform: translateY(-8px);
+}
+
+/* Hide the pixel arcade cabinet image entirely */
+.cabinetImg {
+  display: none;
+}
+
+.cabinetFlipped {
+  display: none;
+}
+
+/* Title becomes the card header */
+.cabinetTitle {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  z-index: 3;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  text-shadow: none;
+  letter-spacing: 0;
+  text-transform: none;
+  pointer-events: none;
+  padding: 12px 8px 0;
+  line-height: 1.4;
+}
+
+.titleFlipped {
+  left: auto;
+  right: auto;
+}
+
+/* Screen becomes the main card body */
+.screenOverlay {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 12px var(--shadow-color);
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.cabinetWrapper:hover .screenOverlay {
+  border-color: var(--accent-primary);
+  box-shadow: 0 8px 32px var(--shadow-strong);
+}
+
+.screenFlipped {
+  left: auto;
+  right: auto;
+}
+
+.screenContent {
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 24px 16px;
+}
+
+.screenDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  z-index: 1;
+}
+
+.screenIcon {
+  font-size: 2.5rem;
+  filter: none;
+}
+
+.insertCoin {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  text-shadow: none;
+  letter-spacing: 1px;
+  animation: none;
+  opacity: 0.7;
+}
+
+.cabinetWrapper:hover .insertCoin {
+  opacity: 1;
+}
+
+/* Hide scanlines in Piltover */
+.scanlines {
+  display: none;
+}
+
+/* ============================
+   ANIMATION
+   ============================ */
+@keyframes pilt-card-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ============================
+   MOBILE
+   ============================ */
+@media (max-width: 768px) {
+  .cabinetWrapper {
+    max-width: 160px;
+  }
+
+  .cabinetTitle {
+    font-size: 0.7rem;
+  }
+
+  .screenIcon {
+    font-size: 2rem;
+  }
+}

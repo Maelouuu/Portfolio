@@ -1,0 +1,168 @@
+/* ============================
+   SHARED STYLES — New Portfolio Pages
+   ============================ */
+
+/* ============================
+   FADE ANIMATIONS
+   ============================ */
+.fadeOut {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* ============================
+   SECTION DEFAULTS
+   ============================ */
+.section {
+  padding: 5rem 3rem;
+  border-bottom: 1px solid var(--np-border);
+  background: var(--np-bg);
+}
+
+.sectionTitle {
+  font-family: var(--np-font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--np-text);
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.5px;
+}
+
+.sectionTitleDot {
+  width: 10px;
+  height: 10px;
+  background: var(--np-accent);
+  flex-shrink: 0;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  box-shadow: none;
+}
+
+.sectionSubtitle {
+  font-family: var(--np-font);
+  font-size: 0.95rem;
+  color: var(--np-text-secondary);
+  margin-top: -1.5rem;
+  margin-bottom: 3rem;
+  max-width: 550px;
+  line-height: 1.7;
+}
+
+/* ============================
+   TECH BADGE (shared)
+   ============================ */
+.techBadge {
+  font-family: var(--np-font);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--np-text-muted);
+  padding: 3px 10px;
+  border: 1px solid var(--np-border);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+/* ============================
+   BUTTONS (shared)
+   ============================ */
+.btnPrimary {
+  font-family: var(--np-font);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0a0a0a;
+  background: var(--np-accent);
+  border: none;
+  padding: 12px 28px;
+  border-radius: var(--np-radius);
+  cursor: pointer;
+  transition: all 0.25s;
+  align-self: flex-start;
+}
+
+.btnPrimary:hover {
+  background: #7fb825;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--np-accent-glow);
+}
+
+.btnSecondary {
+  font-family: var(--np-font);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--np-text-secondary);
+  background: transparent;
+  border: 1px solid var(--np-border-hover);
+  padding: 10px 22px;
+  border-radius: var(--np-radius);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btnSecondary:hover {
+  border-color: var(--np-accent);
+  color: var(--np-accent);
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+.footer {
+  padding: 4rem 3rem 3rem;
+  border-top: 1px solid var(--np-border);
+  background: var(--np-bg);
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.legacyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--np-font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--np-text-muted);
+  padding: 10px 20px;
+  border: 1px solid var(--np-border);
+  border-radius: var(--np-radius);
+  transition: all 0.25s;
+}
+
+.legacyBtn:hover {
+  color: var(--np-accent);
+  border-color: var(--np-border-accent);
+  background: var(--np-accent-subtle);
+}
+
+.copyright {
+  font-family: var(--np-font);
+  font-size: 0.72rem;
+  color: var(--np-text-muted);
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 768px) {
+  .section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+}

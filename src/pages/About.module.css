@@ -1,0 +1,844 @@
+.page {
+  padding-top: 60px;
+  position: relative;
+  background: #1a0a2a;
+}
+
+/* ============================
+   SECTION LAYOUT
+   ============================ */
+.section {
+  padding: 5rem 2rem;
+  position: relative;
+}
+
+.darkViolet {
+  background: linear-gradient(180deg, #1a0a2a 0%, #2a1a4a 50%, #1a0a2a 100%);
+  color: #e8d8f8;
+}
+
+.darkBlack {
+  background: #0a0a12;
+  color: #c9b8e8;
+}
+
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ============================
+   SECTION TITLES
+   ============================ */
+.sectionTitle {
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #c9b8e8;
+  text-shadow: 0 0 10px rgba(155, 123, 207, 0.4);
+}
+
+/* ============================
+   1. HERO
+   ============================ */
+.heroContent {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroTag {
+  font-family: var(--font-pixel);
+  font-size: 0.55rem;
+  color: #9b7bcf;
+  letter-spacing: 5px;
+  margin-bottom: 12px;
+  animation: slide-in-left 0.5s ease-out both;
+}
+
+.heroName {
+  font-family: var(--font-pixel);
+  font-size: 2.4rem;
+  color: #e8d8f8;
+  text-shadow:
+    0 0 20px rgba(155, 123, 207, 0.5),
+    4px 4px 0 rgba(107, 75, 159, 0.6);
+  margin-bottom: 12px;
+  animation: slide-in-left 0.5s ease-out 0.15s both;
+}
+
+.heroRole {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  color: #9b7bcf;
+  letter-spacing: 4px;
+  margin-bottom: 1.5rem;
+  animation: slide-in-left 0.5s ease-out 0.3s both;
+}
+
+.heroSub {
+  font-family: var(--font-retro);
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: rgba(232, 216, 248, 0.7);
+  margin-bottom: 1.5rem;
+  animation: slide-in-left 0.5s ease-out 0.45s both;
+}
+
+.heroStars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 1.3rem;
+  color: #9b7bcf;
+  animation: slide-in-left 0.5s ease-out 0.6s both;
+}
+
+.heroStarsLabel {
+  font-family: var(--font-pixel);
+  font-size: 0.4rem;
+  opacity: 0.6;
+}
+
+/* ============================
+   2. PANORAMA SECTION
+   ============================ */
+.panoSection {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a0a2a 0%, #0f1525 50%, #0a0a12 100%);
+}
+
+.panoImageWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.panoImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.9) saturate(1.1);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.panoOverlayTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(180deg, #1a0a2a 0%, transparent 100%);
+  z-index: 2;
+}
+
+.panoOverlayBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(0deg, #0a0a12 0%, transparent 100%);
+  z-index: 2;
+}
+
+/* Panorama welcome message */
+.panoMessage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  max-width: 600px;
+  width: 90%;
+}
+
+.panoMessageInner {
+  background: rgba(10, 15, 25, 0.85);
+  backdrop-filter: blur(10px);
+  border: 2px solid #0ff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow:
+    0 0 30px rgba(0, 255, 255, 0.3),
+    0 0 60px rgba(0, 255, 255, 0.15),
+    inset 0 0 20px rgba(0, 255, 255, 0.05);
+  animation: message-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes message-glow {
+  0% {
+    box-shadow:
+      0 0 30px rgba(0, 255, 255, 0.3),
+      0 0 60px rgba(0, 255, 255, 0.15),
+      inset 0 0 20px rgba(0, 255, 255, 0.05);
+  }
+  100% {
+    box-shadow:
+      0 0 40px rgba(0, 255, 255, 0.4),
+      0 0 80px rgba(0, 255, 255, 0.2),
+      inset 0 0 30px rgba(0, 255, 255, 0.08);
+  }
+}
+
+.panoMessageIcon {
+  font-size: 1.5rem;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+  flex-shrink: 0;
+  animation: icon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.9); }
+}
+
+.panoMessageText {
+  font-family: var(--font-retro);
+  font-size: 1.2rem;
+  color: #8ff;
+  line-height: 1.6;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.panoPixels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.panoPixel {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #9b7bcf;
+  animation: float 3s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* ============================
+   3. SYNOPSIS
+   ============================ */
+.synopsisCard {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  padding: 2rem;
+  background: rgba(155, 123, 207, 0.05);
+  border-left: 3px solid #9b7bcf;
+  border-radius: 0 8px 8px 0;
+}
+
+.synopsisText {
+  font-family: var(--font-retro);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(201, 184, 232, 0.85);
+}
+
+.synopsisStats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statNumber {
+  font-family: var(--font-pixel);
+  font-size: 1.5rem;
+  color: #9b7bcf;
+  text-shadow: 0 0 10px rgba(155, 123, 207, 0.5);
+}
+
+.statLabel {
+  font-family: var(--font-pixel);
+  font-size: 0.45rem;
+  color: rgba(201, 184, 232, 0.5);
+  letter-spacing: 1px;
+}
+
+.statDivider {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, transparent, #9b7bcf, transparent);
+  opacity: 0.3;
+}
+
+/* ============================
+   4. COMPETENCES — Arcade machine style with vibrant cyan
+   ============================ */
+.skillsArcade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skillMachine {
+  background: linear-gradient(180deg, #0a1a2a 0%, #051015 100%);
+  border: 2px solid #0ff8;
+  border-radius: 8px;
+  padding: 12px 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: slide-in-bottom 0.5s ease-out both;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light reflection effect like Han Solo */
+.skillMachine::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(0, 255, 255, 0.08) 45%,
+    rgba(0, 255, 255, 0.15) 50%,
+    rgba(0, 255, 255, 0.08) 55%,
+    transparent 60%
+  );
+  transform: rotate(-45deg) translateY(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.skillMachine:hover::before {
+  transform: rotate(-45deg) translateY(100%);
+}
+
+.skillMachine:hover {
+  transform: translateY(-4px);
+  border-color: #0ff;
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.4),
+    0 0 40px rgba(0, 255, 255, 0.2),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.skillScreen {
+  background: #030810;
+  border-radius: 4px;
+  padding: 10px 6px;
+  margin-bottom: 8px;
+  border: 1px solid #0ff4;
+}
+
+.skillIcon {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  color: #0ff;
+  text-shadow:
+    0 0 10px #0ff,
+    0 0 20px rgba(0, 255, 255, 0.6),
+    0 0 30px rgba(0, 255, 255, 0.4);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.skillBars {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+}
+
+.skillBar {
+  width: 6px;
+  height: 20px;
+  background: #051520;
+  border: 1px solid #0ff3;
+  transition: all 0.3s ease;
+}
+
+.skillBarActive {
+  background: linear-gradient(180deg, #0ff 0%, #00c8c8 50%, #008888 100%);
+  border-color: #0ff;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  animation: skill-pulse-cyan 2s infinite;
+}
+
+@keyframes skill-pulse-cyan {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.8);
+  }
+}
+
+.skillLabel {
+  font-family: var(--font-pixel);
+  font-size: 0.35rem;
+  color: #8ff;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+}
+
+.skillLevel {
+  font-family: var(--font-pixel);
+  font-size: 0.3rem;
+  color: #0ff;
+  opacity: 0.8;
+}
+
+/* Skill popup modal */
+.skillPopupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.skillPopup {
+  background: linear-gradient(180deg, #0a1520 0%, #051015 100%);
+  border: 3px solid #0ff;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  box-shadow:
+    0 0 40px rgba(0, 255, 255, 0.4),
+    0 0 80px rgba(0, 255, 255, 0.2),
+    inset 0 0 30px rgba(0, 255, 255, 0.05);
+  animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.skillPopupIcon {
+  font-family: var(--font-pixel);
+  font-size: 1.5rem;
+  color: #0ff;
+  text-shadow:
+    0 0 10px #0ff,
+    0 0 20px rgba(0, 255, 255, 0.6),
+    0 0 40px rgba(0, 255, 255, 0.4);
+  margin-bottom: 1rem;
+}
+
+.skillPopupName {
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  color: #8ff;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.skillPopupDesc {
+  font-family: var(--font-retro);
+  font-size: 1.1rem;
+  color: rgba(200, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.skillPopupStars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.skillStar {
+  font-size: 1.5rem;
+  color: #0ff3;
+  transition: all 0.2s;
+}
+
+.skillStarActive {
+  color: #0ff;
+  text-shadow:
+    0 0 10px #0ff,
+    0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+.skillPopupLevel {
+  font-family: var(--font-pixel);
+  font-size: 0.4rem;
+  color: #0ff;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+.skillPopupClose {
+  font-family: var(--font-pixel);
+  font-size: 0.4rem;
+  color: #8ff;
+  background: transparent;
+  border: 2px solid #0ff6;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+}
+
+.skillPopupClose:hover {
+  border-color: #0ff;
+  color: #0ff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+/* ============================
+   5. PARCOURS — Film strip (white background)
+   ============================ */
+.parcoursSection {
+  background: #f5f0e8 !important;
+  color: #1a1a2a;
+}
+
+.parcoursSection .sectionTitle {
+  color: #2a1a4a;
+  text-shadow: none;
+}
+
+.filmTimeline {
+  overflow-x: auto;
+  padding: 1rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: #9b7bcf #ddd;
+}
+
+.filmStrip {
+  display: flex;
+  flex-direction: column;
+  background: #2a2a2a;
+  border-radius: 4px;
+  min-width: max-content;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.filmEdge {
+  display: flex;
+  gap: 20px;
+  padding: 6px 16px;
+  background: #1a1a1a;
+  min-width: max-content;
+}
+
+.sprocketHole {
+  width: 12px;
+  height: 8px;
+  background: #f5f0e8;
+  border-radius: 2px;
+  flex-shrink: 0;
+  border: 1px solid #333;
+}
+
+.filmFrames {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  min-width: max-content;
+  background: #1a1a1a;
+}
+
+.filmFrame {
+  min-width: 180px;
+  padding: 16px;
+  background: rgba(245, 240, 232, 0.95);
+  border: 2px solid #ddd;
+  transition: all 0.3s;
+  animation: slide-in-bottom 0.5s ease-out both;
+  flex-shrink: 0;
+}
+
+.filmFrame:hover {
+  background: #fff;
+  border-color: #9b7bcf;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 123, 207, 0.3);
+}
+
+.frameNumber {
+  font-family: var(--font-pixel);
+  font-size: 0.35rem;
+  color: #9b7bcf;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.frameYear {
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: #6b4b9f;
+  margin-bottom: 6px;
+}
+
+.frameTitle {
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  color: #2a1a4a;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.frameDesc {
+  font-family: var(--font-retro);
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* ============================
+   SECTION BOUNDARY CHARACTERS
+   ============================ */
+.sectionBoundary {
+  position: relative;
+  height: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.boundaryCharLeft {
+  position: absolute;
+  bottom: -29px;
+  left: 1.5%;
+  height: 100px;
+  width: auto;
+  image-rendering: pixelated;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+.boundaryCharRight {
+  position: absolute;
+  bottom: -9px;
+  right: 1.5%;
+  height: 60px;
+  width: auto;
+  image-rendering: pixelated;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+/* ============================
+   CHARACTERS LAYER
+   ============================ */
+.charactersLayer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.character {
+  position: fixed;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1a1a2a;
+  border: 2px solid #3a2a5a;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.character:hover {
+  transform: scale(1.1);
+  border-color: #9b7bcf;
+  box-shadow:
+    0 6px 20px rgba(155, 123, 207, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.characterImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+  display: block;
+}
+
+/* Speech bubble */
+.speechBubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e8d8f8;
+  color: #1a0a2a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: var(--font-pixel);
+  font-size: 0.4rem;
+  white-space: nowrap;
+  max-width: 250px;
+  white-space: normal;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: bubble-pop 0.3s ease-out;
+  z-index: 100;
+}
+
+@keyframes bubble-pop {
+  0% {
+    transform: translateX(-50%) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.bubbleTail {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #e8d8f8;
+}
+
+/* ============================
+   FLOATING DECORATIONS
+   ============================ */
+.floatingPixels {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floatPixel {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ============================
+   MOBILE
+   ============================ */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1.2rem;
+  }
+
+  .heroName {
+    font-size: 1.6rem;
+  }
+
+  .heroStars {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .synopsisCard {
+    padding: 1.2rem;
+  }
+
+  .synopsisStats {
+    gap: 1rem;
+  }
+
+  .skillsArcade {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .skillMachine {
+    padding: 8px 4px;
+  }
+
+  .skillBar {
+    width: 4px;
+    height: 16px;
+  }
+
+  .filmStrip {
+    min-width: 100%;
+  }
+
+  .filmFrames {
+    flex-direction: column;
+    min-width: 100%;
+  }
+
+  .filmFrame {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .filmEdge {
+    display: none;
+  }
+
+  .character {
+    transform: scale(0.7);
+  }
+
+  .speechBubble {
+    font-size: 0.35rem;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skillsArcade {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

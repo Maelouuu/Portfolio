@@ -1,0 +1,190 @@
+/* ============================
+   VIEWPORT — pure black outside the frame
+   ============================ */
+.viewport {
+  min-height: 100vh;
+  background: #000000;
+  position: relative;
+}
+
+/* ============================
+   FRAME — fixed on screen, content scrolls INSIDE
+   ============================ */
+.frame {
+  position: fixed;
+  top: var(--np-frame-pad);
+  left: var(--np-frame-pad);
+  right: calc(var(--np-frame-pad) + 70px);
+  bottom: var(--np-frame-pad);
+  border: 1px solid rgba(90, 138, 24, 0.3);
+  border-radius: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1;
+  /* No background — hero area shows the orb through the frame */
+}
+
+/* Subtle vignette on edges */
+.frame::after {
+  content: '';
+  position: fixed;
+  top: var(--np-frame-pad);
+  left: var(--np-frame-pad);
+  right: calc(var(--np-frame-pad) + 70px);
+  bottom: var(--np-frame-pad);
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 50;
+  box-shadow:
+    inset 0 0 80px rgba(0, 0, 0, 0.25),
+    inset 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom scrollbar — subtle */
+.frame::-webkit-scrollbar {
+  width: 4px;
+}
+
+.frame::-webkit-scrollbar-track {
+  background: transparent;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.frame::-webkit-scrollbar-thumb {
+  background: var(--np-border-hover);
+  border-radius: 4px;
+}
+
+.frame::-webkit-scrollbar-thumb:hover {
+  background: var(--np-border-accent);
+}
+
+/* ============================
+   GRADUAL BLUR EDGE — bottom only
+   ============================ */
+
+/* Bottom blur — height reduced ~30%, top edge fades smoothly */
+.blurEdgeBottom {
+  position: fixed;
+  bottom: var(--np-frame-pad);
+  left: var(--np-frame-pad);
+  right: calc(var(--np-frame-pad) + 70px);
+  height: 50px;
+  pointer-events: none;
+  z-index: 2;
+  /* Very subtle color fade — doesn't create a visible band */
+  background: linear-gradient(to top, rgba(15, 15, 15, 0.18) 0%, transparent 100%);
+  /* Container-level mask fades the whole thing softly at the top edge */
+  mask-image: linear-gradient(to top, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+}
+
+/* Each blur slice layer */
+.blurEdgeLayer {
+  position: absolute;
+  inset: 0;
+}
+
+/* ============================
+   DOT PATTERN — right side only, staggered
+   ============================ */
+.dotPatternRight {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(70px + var(--np-frame-pad));
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  /* Staggered hex pattern — two layers offset by half */
+  background-image:
+    radial-gradient(circle, var(--np-dot-color) var(--np-dot-size), transparent var(--np-dot-size)),
+    radial-gradient(circle, var(--np-dot-color) var(--np-dot-size), transparent var(--np-dot-size));
+  background-size: 18px 18px;
+  background-position: 0 0, 9px 9px;
+  /* Gradient: fades left toward frame */
+  mask-image: linear-gradient(to left, black 0%, black 20%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 0%, black 20%, transparent 100%);
+}
+
+/* ============================
+   GREEN ORB — animated background blob
+   ============================ */
+.orb {
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(46, 94, 9, 0.92) 0%,
+    rgba(46, 94, 9, 0.55) 30%,
+    rgba(46, 94, 9, 0.18) 58%,
+    transparent 75%
+  );
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(75px);
+  will-change: transform;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 900px) {
+  .frame {
+    right: calc(var(--np-frame-pad) + 40px);
+  }
+
+  .frame::after {
+    right: calc(var(--np-frame-pad) + 40px);
+  }
+
+  .dotPatternRight {
+    width: calc(40px + var(--np-frame-pad));
+  }
+
+  .blurEdgeBottom {
+    right: calc(var(--np-frame-pad) + 40px);
+  }
+}
+
+@media (max-width: 768px) {
+  .frame {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-radius: 14px;
+  }
+
+  .frame::after {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-radius: 14px;
+  }
+
+  .dotPatternRight {
+    display: none;
+  }
+
+  .orb {
+    width: 300px;
+    height: 300px;
+  }
+
+  .blurEdgeBottom {
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    border-radius: 0 0 14px 14px;
+  }
+}

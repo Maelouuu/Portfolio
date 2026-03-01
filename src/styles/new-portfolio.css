@@ -1,0 +1,38 @@
+/* ============================
+   NEW PORTFOLIO — Dark + Vert Sapin
+   ============================ */
+:root {
+  --np-bg: #0f0f0f;
+  --np-bg-card: #161616;
+  --np-bg-card-hover: #1c1c1c;
+  --np-bg-input: #131313;
+
+  --np-accent: #2E5E09;
+  --np-accent-dim: rgba(46, 94, 9, 0.18);
+  --np-accent-glow: rgba(46, 94, 9, 0.3);
+  --np-accent-subtle: rgba(46, 94, 9, 0.09);
+
+  --np-text: #e8e8e8;
+  --np-text-secondary: #999999;
+  --np-text-muted: #555555;
+
+  --np-border: #222222;
+  --np-border-hover: #333333;
+  --np-border-accent: rgba(46, 94, 9, 0.3);
+  --np-border-green: rgba(46, 94, 9, 0.4);
+
+  --np-neon: #7FFF00;
+  --np-neon-glow: rgba(127, 255, 0, 0.25);
+  --np-neon-border: rgba(90, 138, 24, 0.35);
+
+  --np-dot-color: rgba(90, 138, 24, 0.22);
+  --np-dot-size: 1.2px;
+  --np-dot-spacing: 9px;
+
+  --np-frame-pad: 20px;
+
+  --np-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --np-font-display: 'Recoleta', Georgia, 'Times New Roman', serif;
+  --np-radius: 8px;
+  --np-radius-lg: 12px;
+}

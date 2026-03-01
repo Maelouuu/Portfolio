@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import './new-portfolio.css';
+
+/* ============================
+   PILTOVER THEME (Clean/Elegant)
+   ============================ */
+[data-theme="piltover"] {
+  /* Primary whites */
+  --bg-primary: #FAFAF7;
+  --bg-secondary: #F5F1EB;
+  --bg-tertiary: #EDE8DF;
+  --bg-card: #FFFFFF;
+
+  /* Gold accents — rich multi-tone palette */
+  --accent-primary: #C9A84C;
+  --accent-secondary: #D4AF37;
+  --accent-tertiary: #E8D48B;
+  --accent-glow: rgba(212, 175, 55, 0.15);
+
+  /* Gold light/shadow system */
+  --gold-highlight: #F2E5A0;
+  --gold-light: #E8D48B;
+  --gold-mid: #D4AF37;
+  --gold-deep: #B8942E;
+  --gold-shadow: #8B6F22;
+  --gold-dark: #6B5518;
+  --gold-reflection: linear-gradient(135deg, #F2E5A0 0%, #D4AF37 30%, #B8942E 50%, #D4AF37 70%, #F2E5A0 100%);
+  --gold-shine: linear-gradient(180deg, #F2E5A0 0%, #D4AF37 40%, #8B6F22 100%);
+  --gold-border: linear-gradient(135deg, #E8D48B, #C9A84C, #8B6F22, #C9A84C, #E8D48B);
+  --gold-glow-strong: rgba(212, 175, 55, 0.35);
+  --gold-glow-soft: rgba(232, 212, 139, 0.2);
+
+  /* Nature greens */
+  --nature-primary: #6B8F71;
+  --nature-secondary: #8BA888;
+  --nature-tertiary: #A7C4A0;
+  --nature-light: #D4E8D1;
+
+  /* Text */
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --text-tertiary: #7A7A7A;
+  --text-accent: #C9A84C;
+
+  /* UI */
+  --border-color: rgba(201, 168, 76, 0.2);
+  --border-strong: rgba(201, 168, 76, 0.4);
+  --shadow-color: rgba(0, 0, 0, 0.06);
+  --shadow-strong: rgba(0, 0, 0, 0.12);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Shared overrides */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+/* ============================
+   ZAUN THEME (Divergent/Pixel)
+   ============================ */
+[data-theme="zaun"] {
+  /* Dark backgrounds */
+  --bg-primary: #1a0a2a;
+  --bg-secondary: #0a0a12;
+  --bg-tertiary: #2a1a4a;
+  --bg-card: rgba(10, 25, 42, 0.9);
+
+  /* Neon accents */
+  --accent-primary: #0ff;
+  --accent-secondary: #ff00ff;
+  --accent-tertiary: #B6F500;
+  --accent-glow: rgba(0, 255, 255, 0.2);
+
+  /* Cyber greens */
+  --nature-primary: #399918;
+  --nature-secondary: #B6F500;
+  --nature-tertiary: #C0EBA6;
+  --nature-light: rgba(182, 245, 0, 0.1);
+
+  /* Text */
+  --text-primary: #e8d8f8;
+  --text-secondary: #c9b8e8;
+  --text-tertiary: #9b7bcf;
+  --text-accent: #0ff;
+
+  /* UI */
+  --border-color: rgba(0, 255, 255, 0.2);
+  --border-strong: rgba(0, 255, 255, 0.5);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-strong: rgba(0, 255, 255, 0.2);
+
+  /* Typography */
+  --font-heading: 'Press Start 2P', monospace;
+  --font-body: 'VT323', monospace;
+
+  /* Shared overrides */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Legacy Zaun vars kept for existing CSS */
+  --cinema-magenta: #A8026F;
+  --cinema-red: #DB2D43;
+  --cinema-orange: #E76838;
+  --cinema-yellow: #FBF9AF;
+
+  --green-cream: #FFFADC;
+  --green-light: #B6F500;
+  --green-mid: #A4DD00;
+  --green-accent: #98CD00;
+
+  --nature-dark: #399918;
+  --nature-lime: #B4E50D;
+
+  --brown-light: #C4A882;
+  --brown-mid: #A67C52;
+  --brown-soft: #D4B896;
+
+  --purple-dark: #424874;
+  --purple-mid: #A6B1E1;
+  --purple-light: #DCD6F7;
+  --purple-white: #F4EEFF;
+
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-retro: 'VT323', monospace;
+
+  --border-pixel: 4px solid;
+  --shadow-retro: 4px 4px 0px rgba(0,0,0,0.3);
+  --transition-default: all 0.3s ease;
+}
+
+/* Piltover also needs the legacy vars for shared components */
+[data-theme="piltover"] {
+  --cinema-magenta: #A8026F;
+  --cinema-red: #DB2D43;
+  --cinema-orange: #E76838;
+  --cinema-yellow: #FBF9AF;
+  --green-cream: #FFFADC;
+  --green-light: #B6F500;
+  --green-mid: #A4DD00;
+  --green-accent: #98CD00;
+  --nature-dark: #399918;
+  --nature-lime: #B4E50D;
+  --brown-light: #C4A882;
+  --brown-mid: #A67C52;
+  --brown-soft: #D4B896;
+  --purple-dark: #424874;
+  --purple-mid: #A6B1E1;
+  --purple-light: #DCD6F7;
+  --purple-white: #F4EEFF;
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-retro: 'VT323', monospace;
+  --border-pixel: 4px solid;
+  --shadow-retro: 4px 4px 0px rgba(0,0,0,0.3);
+  --transition-default: all 0.3s ease;
+}
+
+/* ============================
+   RESET & BASE
+   ============================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--np-font);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background: var(--np-bg);
+  color: var(--np-text);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Legacy themes override body styles via data-theme */
+[data-theme] body {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Pixel cursor only for Zaun */
+[data-theme="zaun"] body {
+  cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><rect x='2' y='2' width='4' height='4' fill='%23000'/><rect x='6' y='6' width='4' height='4' fill='%23000'/><rect x='10' y='10' width='4' height='4' fill='%23000'/><rect x='2' y='6' width='4' height='4' fill='%23000'/><rect x='2' y='10' width='4' height='4' fill='%23000'/><rect x='14' y='14' width='4' height='4' fill='%23000'/><rect x='6' y='14' width='4' height='4' fill='%23333'/><rect x='10' y='14' width='4' height='4' fill='%23333'/><rect x='14' y='10' width='4' height='4' fill='%23333'/></svg>") 0 0, auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+/* ============================
+   PIXEL ART UTILITIES (Zaun only)
+   ============================ */
+.pixel-border {
+  border: 4px solid currentColor;
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0,0,0,0.2),
+    inset 4px 4px 0px 0px rgba(255,255,255,0.2),
+    4px 4px 0px 0px rgba(0,0,0,0.3);
+}
+
+.pixel-border-thin {
+  border: 2px solid currentColor;
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0,0,0,0.2),
+    inset 2px 2px 0px 0px rgba(255,255,255,0.2),
+    2px 2px 0px 0px rgba(0,0,0,0.3);
+}
+
+/* ============================
+   SCROLLBAR
+   ============================ */
+[data-theme="zaun"] ::-webkit-scrollbar {
+  width: 12px;
+}
+
+[data-theme="zaun"] ::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+[data-theme="zaun"] ::-webkit-scrollbar-thumb {
+  background: #7AB2B2;
+  border: 2px solid #1a1a2e;
+}
+
+[data-theme="zaun"] ::-webkit-scrollbar-thumb:hover {
+  background: #9B5DE0;
+}
+
+[data-theme="piltover"] ::-webkit-scrollbar {
+  width: 8px;
+}
+
+[data-theme="piltover"] ::-webkit-scrollbar-track {
+  background: #F5F1EB;
+}
+
+[data-theme="piltover"] ::-webkit-scrollbar-thumb {
+  background: #D4C5A0;
+  border-radius: 4px;
+}
+
+[data-theme="piltover"] ::-webkit-scrollbar-thumb:hover {
+  background: #C9A84C;
+}
+
+/* ============================
+   SELECTION
+   ============================ */
+[data-theme="zaun"] ::selection {
+  background: var(--purple-mid);
+  color: white;
+}
+
+[data-theme="piltover"] ::selection {
+  background: #E8D48B;
+  color: #1A1A1A;
+}

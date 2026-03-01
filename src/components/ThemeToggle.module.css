@@ -1,0 +1,307 @@
+/* ============================
+   HEXTECH CRYSTAL TOGGLE
+   ============================ */
+.crystal {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9000;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: transparent;
+  padding: 0;
+}
+
+.crystal:hover {
+  transform: scale(1.15);
+}
+
+.crystal.active {
+  transform: scale(1.3);
+  pointer-events: none;
+}
+
+/* ============================
+   PILTOVER STATE — Golden gem
+   ============================ */
+.piltover {
+  background: radial-gradient(circle at 35% 35%,
+    #F5E6B8 0%,
+    #D4AF37 30%,
+    #C9A84C 50%,
+    #A88B3A 70%,
+    #8B7332 100%
+  );
+  box-shadow:
+    0 0 20px rgba(212, 175, 55, 0.4),
+    0 0 40px rgba(212, 175, 55, 0.2),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 3px 6px rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(245, 230, 184, 0.6);
+}
+
+.piltover:hover {
+  box-shadow:
+    0 0 30px rgba(212, 175, 55, 0.6),
+    0 0 60px rgba(212, 175, 55, 0.3),
+    0 0 80px rgba(212, 175, 55, 0.15),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 3px 6px rgba(255, 255, 255, 0.4);
+}
+
+.piltover .gemCore {
+  background: radial-gradient(circle at 40% 40%, #FFF8E7, #E8D48B, #C9A84C);
+}
+
+.piltover .particle {
+  background: #D4AF37;
+  box-shadow: 0 0 6px #D4AF37;
+}
+
+.piltover .glowRing {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+/* ============================
+   ZAUN STATE — Cyan neon gem
+   ============================ */
+.zaun {
+  background: radial-gradient(circle at 35% 35%,
+    #80FFFF 0%,
+    #00E5E5 25%,
+    #00CCCC 45%,
+    #008888 70%,
+    #005555 100%
+  );
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.5),
+    0 0 40px rgba(0, 255, 255, 0.25),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.3),
+    inset 0 3px 6px rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  animation: zaun-pulse 2s ease-in-out infinite;
+}
+
+@keyframes zaun-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(0, 255, 255, 0.5),
+      0 0 40px rgba(0, 255, 255, 0.25),
+      inset 0 -3px 6px rgba(0, 0, 0, 0.3),
+      inset 0 3px 6px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(0, 255, 255, 0.7),
+      0 0 60px rgba(0, 255, 255, 0.35),
+      0 0 80px rgba(0, 255, 255, 0.15),
+      inset 0 -3px 6px rgba(0, 0, 0, 0.3),
+      inset 0 3px 6px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.zaun:hover {
+  box-shadow:
+    0 0 30px rgba(0, 255, 255, 0.7),
+    0 0 60px rgba(0, 255, 255, 0.4),
+    0 0 100px rgba(0, 255, 255, 0.2),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.3),
+    inset 0 3px 6px rgba(255, 255, 255, 0.3);
+  animation: none;
+}
+
+.zaun .gemCore {
+  background: radial-gradient(circle at 40% 40%, #CCFFFF, #00E5E5, #008888);
+}
+
+.zaun .particle {
+  background: #0ff;
+  box-shadow: 0 0 6px #0ff;
+}
+
+.zaun .glowRing {
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+/* ============================
+   GEM CORE (inner diamond shape)
+   ============================ */
+.gemCore {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  transform: rotate(45deg);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.facet1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0 0 2px 0;
+}
+
+.facet2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 2px 0 0 0;
+}
+
+.facet3 {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  animation: facet-shine 3s ease-in-out infinite;
+}
+
+@keyframes facet-shine {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+/* ============================
+   ORBITING PARTICLES
+   ============================ */
+.orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  animation: orbit-spin 3.6s linear infinite;
+}
+
+@keyframes orbit-spin {
+  0% {
+    transform: rotate(0deg) translateX(30px) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: rotate(360deg) translateX(30px) rotate(-360deg);
+    opacity: 0.8;
+  }
+}
+
+/* ============================
+   GLOW RING
+   ============================ */
+.glowRing {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  animation: ring-breathe 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ring-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0.3; }
+}
+
+/* ============================
+   TRANSITION OVERLAY (ripple)
+   ============================ */
+.transitionOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99998;
+  pointer-events: none;
+}
+
+.rippleWave {
+  position: absolute;
+  left: var(--ripple-x);
+  top: var(--ripple-y);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.4) 55%,
+    rgba(255, 255, 255, 0.15) 60%,
+    transparent 70%
+  );
+}
+
+.expanding .rippleWave {
+  animation: ripple-expand 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes ripple-expand {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    width: 300vmax;
+    height: 300vmax;
+    opacity: 0;
+  }
+}
+
+/* ============================
+   MOBILE
+   ============================ */
+@media (max-width: 768px) {
+  .crystal {
+    width: 44px;
+    height: 44px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .gemCore {
+    width: 16px;
+    height: 16px;
+  }
+
+  .glowRing {
+    width: 36px;
+    height: 36px;
+  }
+}

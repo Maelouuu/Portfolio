@@ -1,0 +1,33 @@
+import { NavLink } from 'react-router-dom';
+import s from './NewNavbar.module.css';
+
+const sections = [
+  { to: '/', label: 'A propos' },
+  { to: '/projects', label: 'Projets' },
+  { to: '/contact', label: 'Contact' },
+];
+
+const NewNavbar = () => {
+  return (
+    <nav className={s.navbar}>
+      <NavLink to="/" className={s.logo}>
+        <span className={s.logoAccent}>M</span>
+        <span className={s.logoText}>ael Girardin</span>
+      </NavLink>
+      <div className={s.navLinks}>
+        {sections.map((sec) => (
+          <NavLink
+            key={sec.to}
+            to={sec.to}
+            end={sec.to === '/'}
+            className={({ isActive }) => `${s.navLink} ${isActive ? s.active : ''}`}
+          >
+            {sec.label}
+          </NavLink>
+        ))}
+      </div>
+    </nav>
+  );
+};
+
+export default NewNavbar;

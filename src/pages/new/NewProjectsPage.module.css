@@ -1,0 +1,725 @@
+/* ============================
+   PAGE HEADER
+   ============================ */
+.page {
+  padding-bottom: 0;
+}
+
+.pageHeader {
+  padding: 7rem 3rem 4rem;
+  border-bottom: 1px solid var(--np-border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Large decorative background text */
+.pageHeader::before {
+  content: 'WORK';
+  position: absolute;
+  right: -1rem;
+  bottom: -1.5rem;
+  font-family: var(--np-font);
+  font-size: 8rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.018);
+  letter-spacing: -4px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.headerIndex {
+  font-family: 'Courier New', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--np-accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.pageTitle {
+  font-family: var(--np-font-display);
+  font-size: 4rem;
+  font-weight: 400;
+  color: var(--np-text);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.pageDesc {
+  font-family: var(--np-font);
+  font-size: 0.95rem;
+  color: var(--np-text-secondary);
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+/* ============================
+   PROJECTS GRID — bento style
+   ============================ */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* ============================
+   PROJECT CARD — with spotlight effect
+   ============================ */
+.projectCard {
+  --spot-x: 50%;
+  --spot-y: 50%;
+
+  position: relative;
+  background: var(--np-bg-card);
+  border: 1px solid var(--np-border);
+  border-radius: var(--np-radius-lg);
+  padding: 2rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  cursor: default;
+}
+
+/* Mouse spotlight glow */
+.projectCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    280px circle at var(--spot-x) var(--spot-y),
+    rgba(111, 166, 32, 0.07) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+  border-radius: var(--np-radius-lg);
+}
+
+.projectCard:hover::after {
+  opacity: 1;
+}
+
+/* Top accent bar that appears on hover */
+.cardAccentBar {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--np-accent), transparent);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.projectCard:hover .cardAccentBar {
+  opacity: 1;
+}
+
+.projectCard:hover {
+  border-color: rgba(111, 166, 32, 0.2);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(111, 166, 32, 0.06);
+}
+
+/* Featured card — spans full width */
+.projectCardFeatured {
+  grid-column: 1 / -1;
+}
+
+.featuredLayout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Card number (top right) */
+.cardNumber {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.8rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--np-border-hover);
+  letter-spacing: 2px;
+  transition: color 0.3s;
+}
+
+.projectCard:hover .cardNumber {
+  color: var(--np-accent);
+  opacity: 0.6;
+}
+
+.projectHeader {
+  margin-bottom: 0.8rem;
+}
+
+.projectMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.projectTitle {
+  font-family: var(--np-font);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--np-text);
+  line-height: 1.2;
+  transition: color 0.25s;
+}
+
+.projectTitleFeatured {
+  font-family: var(--np-font-display);
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+}
+
+.projectCard:hover .projectTitle {
+  color: #fff;
+}
+
+.projectStatus {
+  font-family: 'Courier New', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--np-accent);
+  background: var(--np-accent-subtle);
+  border: 1px solid var(--np-accent-dim);
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.statusActive {
+  color: #ff9500;
+  background: rgba(255, 149, 0, 0.07);
+  border-color: rgba(255, 149, 0, 0.2);
+}
+
+.projectDuration,
+.projectYear {
+  font-family: 'Courier New', monospace;
+  font-size: 0.68rem;
+  color: var(--np-text-muted);
+}
+
+.projectDesc {
+  font-family: var(--np-font);
+  font-size: 0.88rem;
+  color: var(--np-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.projectTechs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ============================
+   BANNER
+   ============================ */
+.banner {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bannerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(0.78) saturate(0.85);
+}
+
+/* ============================
+   EXPERIENCE — editorial list
+   ============================ */
+.expList {
+  display: flex;
+  flex-direction: column;
+}
+
+.expItem {
+  display: grid;
+  grid-template-columns: 150px 1fr 110px;
+  gap: 2.5rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--np-border);
+  align-items: start;
+  transition: padding 0.25s;
+}
+
+.expItem:first-child {
+  border-top: 1px solid var(--np-border);
+}
+
+.expItemLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.expItemNum {
+  font-family: var(--np-font-display);
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: rgba(46, 94, 9, 0.2);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.expItemPeriod {
+  font-family: 'Courier New', monospace;
+  font-size: 0.62rem;
+  color: var(--np-text-muted);
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+
+.expItemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.expItemHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.expItemTitle {
+  font-family: var(--np-font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--np-text);
+  line-height: 1.2;
+}
+
+.expItemCompany {
+  font-family: var(--np-font);
+  font-size: 0.82rem;
+  color: var(--np-accent);
+  font-weight: 500;
+}
+
+.expItemDesc {
+  font-family: var(--np-font);
+  font-size: 0.87rem;
+  color: var(--np-text-secondary);
+  line-height: 1.75;
+}
+
+.expItemTechs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.expItemProgress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  padding-top: 4px;
+}
+
+.expItemProgressBar {
+  width: 80px;
+  height: 2px;
+  background: var(--np-border-hover);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.expItemProgressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--np-accent), var(--np-neon));
+  border-radius: 2px;
+  transition: width 1s ease;
+}
+
+.expItemProgressPct {
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  color: var(--np-accent);
+  font-weight: 700;
+}
+
+/* keep old expHeader for ProjectModal badge reuse */
+.expHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.expBadge {
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+.expBadgeDone {
+  color: var(--np-accent);
+  background: var(--np-accent-subtle);
+  border: 1px solid var(--np-accent-dim);
+}
+
+.expBadgeActive {
+  color: #ff9500;
+  background: rgba(255, 149, 0, 0.07);
+  border: 1px solid rgba(255, 149, 0, 0.2);
+}
+
+.expPeriod {
+  font-family: 'Courier New', monospace;
+  font-size: 0.65rem;
+  color: var(--np-text-muted);
+}
+
+.expTitle {
+  font-family: var(--np-font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--np-text);
+  margin-bottom: 3px;
+}
+
+.expCompany {
+  font-family: var(--np-font);
+  font-size: 0.82rem;
+  color: var(--np-accent);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.expDesc {
+  font-family: var(--np-font);
+  font-size: 0.87rem;
+  color: var(--np-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+/* Progress bar */
+.expProgressWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.expProgressBar {
+  flex: 1;
+  height: 3px;
+  background: var(--np-border-hover);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.expProgressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--np-accent), var(--np-neon));
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--np-accent-glow);
+  transition: width 1s ease;
+}
+
+.expProgressLabel {
+  font-family: 'Courier New', monospace;
+  font-size: 0.62rem;
+  color: var(--np-accent);
+  font-weight: 700;
+  min-width: 32px;
+}
+
+.expSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 1.2rem;
+}
+
+.expStep {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  color: var(--np-border-hover);
+}
+
+.expStepDone {
+  color: var(--np-text-muted);
+}
+
+.expStepDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--np-border-hover);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.expStepDone .expStepDot {
+  background: var(--np-accent);
+  box-shadow: 0 0 5px var(--np-accent-dim);
+}
+
+.expTechs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Card hover hint */
+.cardHint {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  color: var(--np-accent);
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.projectCard:hover .cardHint { opacity: 0.7; }
+
+/* Clickable cursor */
+.projectCard { cursor: pointer; }
+
+/* ============================
+   PROJECT MODAL + CAROUSEL
+   ============================ */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.projectModal {
+  background: var(--np-bg-card);
+  border: 1px solid var(--np-border-hover);
+  border-radius: var(--np-radius-lg);
+  width: 100%;
+  max-width: 740px;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(46, 94, 9, 0.08);
+  scrollbar-width: none;
+}
+
+.projectModal::-webkit-scrollbar { display: none; }
+
+.modalClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--np-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.modalClose:hover {
+  border-color: var(--np-accent);
+  color: var(--np-accent);
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.carouselImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: fadeImg 0.25s ease-out;
+}
+
+@keyframes fadeImg {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.55);
+  color: var(--np-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.carouselArrow:hover {
+  background: rgba(46, 94, 9, 0.35);
+  border-color: rgba(46, 94, 9, 0.5);
+}
+
+.carouselArrowLeft { left: 12px; }
+.carouselArrowRight { right: 12px; }
+
+.carouselControls {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carouselCounter {
+  font-family: 'Courier New', monospace;
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 8px;
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+}
+
+.carouselDots {
+  display: flex;
+  gap: 5px;
+}
+
+.carouselDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.carouselDotActive {
+  background: var(--np-accent);
+  transform: scale(1.3);
+}
+
+/* Modal details */
+.modalDetails {
+  padding: 1.8rem 2rem;
+}
+
+.modalProjectTitle {
+  font-family: var(--np-font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--np-text);
+  margin: 0.6rem 0 1rem;
+  line-height: 1.2;
+}
+
+.modalProjectDesc {
+  font-family: var(--np-font);
+  font-size: 0.9rem;
+  color: var(--np-text-secondary);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 900px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectCardFeatured {
+    grid-column: auto;
+  }
+
+  .featuredLayout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .expItem {
+    grid-template-columns: 110px 1fr;
+    gap: 1.5rem;
+  }
+
+  .expItemProgress {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .expItem {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .expItemNum {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHeader {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .pageTitle {
+    font-size: 3rem;
+    letter-spacing: -0.5px;
+  }
+}

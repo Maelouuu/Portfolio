@@ -1,0 +1,199 @@
+/* ============================
+   SHARED ANIMATIONS
+   ============================ */
+
+/* CRT flicker */
+@keyframes crt-flicker {
+  0% { opacity: 0.97; }
+  5% { opacity: 0.9; }
+  10% { opacity: 0.98; }
+  15% { opacity: 0.92; }
+  20% { opacity: 1; }
+  50% { opacity: 0.98; }
+  80% { opacity: 0.96; }
+  100% { opacity: 1; }
+}
+
+/* CRT turn on */
+@keyframes crt-turn-on {
+  0% {
+    transform: scaleY(0.01) scaleX(0.5);
+    filter: brightness(10);
+  }
+  20% {
+    transform: scaleY(0.01) scaleX(1);
+    filter: brightness(5);
+  }
+  40% {
+    transform: scaleY(0.5) scaleX(1);
+    filter: brightness(2);
+  }
+  60% {
+    transform: scaleY(0.8) scaleX(1);
+    filter: brightness(1.5);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+    filter: brightness(1);
+  }
+}
+
+/* Neon glow pulse */
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 4px currentColor,
+      0 0 11px currentColor,
+      0 0 19px currentColor,
+      0 0 40px currentColor;
+  }
+  50% {
+    text-shadow:
+      0 0 2px currentColor,
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 20px currentColor;
+  }
+}
+
+/* Neon flicker */
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 4px currentColor,
+      0 0 11px currentColor,
+      0 0 19px currentColor,
+      0 0 40px currentColor,
+      0 0 80px currentColor;
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    opacity: 0.6;
+  }
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Pixel bounce */
+@keyframes pixel-bounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-8px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-4px); }
+}
+
+/* Blink cursor */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Scanline move */
+@keyframes scanline-move {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* Slide in from left */
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide in from right */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide in from bottom */
+@keyframes slide-in-bottom {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Glitch */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* TV static noise */
+@keyframes static-noise {
+  0% { background-position: 0 0; }
+  10% { background-position: -5% -10%; }
+  20% { background-position: -15% 5%; }
+  30% { background-position: 7% -25%; }
+  40% { background-position: -5% 25%; }
+  50% { background-position: -15% 10%; }
+  60% { background-position: 15% 0%; }
+  70% { background-position: 0% 15%; }
+  80% { background-position: 3% 35%; }
+  90% { background-position: -10% 10%; }
+  100% { background-position: 0 0; }
+}
+
+/* Confetti fall */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Insert coin blink */
+@keyframes insert-coin {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Channel switch */
+@keyframes channel-switch {
+  0% {
+    filter: brightness(5) saturate(0);
+    transform: scaleY(1);
+  }
+  30% {
+    filter: brightness(3) saturate(0);
+    transform: scaleY(0.005);
+  }
+  60% {
+    filter: brightness(3) saturate(0);
+    transform: scaleY(0.005);
+  }
+  100% {
+    filter: brightness(1) saturate(1);
+    transform: scaleY(1);
+  }
+}

@@ -1,0 +1,103 @@
+.frame {
+  position: relative;
+  padding: 2rem;
+}
+
+.corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.7;
+  transition: opacity 0.4s ease;
+}
+
+.frame:hover .corner {
+  opacity: 1;
+}
+
+.cornerTL {
+  top: 0;
+  left: 0;
+}
+
+.cornerTR {
+  top: 0;
+  right: 0;
+}
+
+.cornerBL {
+  bottom: 0;
+  left: 0;
+}
+
+.cornerBR {
+  bottom: 0;
+  right: 0;
+}
+
+/* Variant: section — larger corners */
+.section {
+  padding: 3rem 2.5rem;
+}
+
+.section .corner {
+  width: 70px;
+  height: 70px;
+}
+
+/* Variant: card — smaller corners */
+.card {
+  padding: 1.5rem;
+}
+
+.card .corner {
+  width: 40px;
+  height: 40px;
+}
+
+/* Variant: hero — large decorative */
+.hero {
+  padding: 4rem 3rem;
+}
+
+.hero .corner {
+  width: 90px;
+  height: 90px;
+  opacity: 0.6;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .corner {
+    width: 40px;
+    height: 40px;
+  }
+
+  .section .corner {
+    width: 45px;
+    height: 45px;
+  }
+
+  .hero .corner {
+    width: 55px;
+    height: 55px;
+  }
+
+  .frame {
+    padding: 1.5rem;
+  }
+
+  .section {
+    padding: 2rem 1.5rem;
+  }
+
+  .hero {
+    padding: 2.5rem 1.5rem;
+  }
+}
