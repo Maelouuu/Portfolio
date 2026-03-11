@@ -10,16 +10,19 @@ import { projects, techDetails } from './data';
    DATA
    ============================ */
 const timeline = [
-  { year: '2022', title: 'Baccalaureat', desc: 'Obtention du bac avec mention' },
-  { year: '2022', title: 'BUT 1 Informatique', desc: "IUT d'Arles — Bases en programmation et algorithmique" },
-  { year: '2023', title: 'BUT 2 Informatique', desc: 'Developpement web, bases de donnees, programmation orientee objet' },
-  { year: '2024', title: 'BUT 3 Informatique', desc: 'Specialisation Imagerie Numerique — Unity, OpenGL, WebGL' },
-  { year: '2025', title: 'Recherche de Master', desc: 'Candidature en Master Informatique' },
+  { year: '2022', title: 'Baccalaureat', desc: "Obtention du bac avec mention Bien" },
+  { year: '2023', title: 'BUT 1 Informatique', desc: "IUT d'Arles — 1ère année : Bases en programmation et algorithmique" },
+  { year: '2024', title: 'BUT 2 Informatique', desc: "IUT d'Arles — 1ère année : Developpement web, bases de donanees, programmation orientee objet" },
+  { year: '2025', title: 'BUT 3 Informatique', desc: "IUT d'Arles — 3ème année : Specialisation Imagerie Numerique — Unity, OpenGL, WebGL" },
+  { year: '2026', title: 'Recherche de Master', desc: "Obtention du BUT — Candidature en Master" },
 ];
 
 const skills = [
-  'Java', 'Python', 'JavaScript', 'TypeScript', 'HTML / CSS',
-  'SQL', 'Git', 'React', 'Node.js', 'Unity', 'WebGL', 'Figma', 'Vite', 'OpenGL',
+  'Java', 'JavaFX', 'Python', 'JavaScript', 'TypeScript', 'HTML / CSS',
+  'SQL', 'Git', 'React', 'React Native', 'Node.js', 'Flask', 'FastAPI',
+  'Three.js', 'Unity', 'WebGL', 'OpenGL', 'Figma', 'Vite',
+  'PostgreSQL', 'MongoDB', 'Docker', 'Linux', 'CI/CD', 'Agile',
+  'REST APIs', 'AR/VR', 'C#', 'C++', 'bash',
 ];
 
 /* ============================
@@ -361,14 +364,15 @@ const NewAboutPage = () => {
             </p>
 
             <p className={s.heroDesc}>
-              Passionne par la creation d'experiences numeriques uniques,
-              je transforme les idees en projets concrets avec creativite et rigueur.
+              En 3ᵉ année de BUT Informatique à l'IUT d'Arles. Je navigue entre
+              développement web, data et architecture logicielle, avec l'envie de
+              construire des projets utiles et bien pensés.
             </p>
 
             <div className={s.heroStats}>
-              {/* 14 technologies → tech modal */}
+              {/* technologies count → tech modal */}
               <button className={s.heroStatBtn} onClick={() => setTechModalOpen(true)}>
-                <span className={s.heroStatNumber}>14</span>
+                <span className={s.heroStatNumber}>{skills.length}</span>
                 <span className={s.heroStatLabel}>Technologies</span>
               </button>
 
@@ -424,7 +428,7 @@ const NewAboutPage = () => {
         {/* PARCOURS — horizontal scrollable film strip */}
         <div ref={parcoursSectionRef} id="section-parcours">
           <FadeSection className={shared.section}>
-            <h2 className={shared.sectionTitle}>
+            <h2 className={`${shared.sectionTitle} ${s.aboutSectionTitle}`}>
               <span className={shared.sectionTitleDot} />
               Parcours
             </h2>
@@ -455,15 +459,17 @@ const NewAboutPage = () => {
 
         {/* A PROPOS — editorial magazine style */}
         <FadeSection className={shared.section}>
-          <h2 className={shared.sectionTitle}>
+          <h2 className={`${shared.sectionTitle} ${s.aboutSectionTitle}`}>
             <span className={shared.sectionTitleDot} />
             A propos
           </h2>
 
           {/* Pull quote */}
           <blockquote className={s.editQuote}>
-            « Je transforme les idees en projets concrets,
-            en alliant logique et sensibilite creatrice. »
+            <span className={s.editQuoteTitle}>Pr&#233;sentation</span>
+            <span className={s.editQuoteSub}>
+              Maël — 22 ans, célibataire, libre comme l'air.
+            </span>
           </blockquote>
 
           {/* Ornamental divider — SVG bullseye */}
@@ -480,25 +486,23 @@ const NewAboutPage = () => {
           <div className={s.editGrid}>
             <div className={s.editText}>
               <p>
-                Actuellement en 3eme annee de BUT Informatique a l'IUT d'Arles,
-                je me specialise en <em>Imagerie Numerique</em> et developpement web.
+                Salut ✌, moi c'est Maël. Je suis en <em>3ᵉ année de BUT Informatique</em> à
+                l'IUT d'Arles. Au quotidien, je navigue entre développement web, data,
+                architecture logicielle et un peu de DevOps, avec l'envie de construire
+                des projets utiles, bien pensés et agréables à utiliser.
               </p>
               <p>
-                Mon parcours m'a permis de developper une vision complete du
-                developpement : de la conception d'interfaces utilisateur a
-                l'architecture backend, en passant par la 3D temps reel avec
-                Unity et OpenGL.
-              </p>
-              <p>
-                Je recherche actuellement un <em>Master en Informatique</em> pour
-                approfondir mes competences et contribuer a des projets qui ont du sens.
+                Quand je ne suis pas derrière un clavier, tu me trouveras souvent sur
+                un <em>mur d'escalade</em>, devant un bon film ou le nez dans un livre.
+                Ce portfolio rassemble quelques projets marquants qui racontent ma façon
+                de travailler : comprendre un besoin, expérimenter, itérer et soigner les détails.
               </p>
             </div>
 
             <div className={s.editStats}>
-              {/* 14 techs → modal */}
+              {/* technologies count → modal */}
               <button className={s.editStat} onClick={() => setTechModalOpen(true)}>
-                <span className={s.editStatNum}>14</span>
+                <span className={s.editStatNum}>{skills.length}</span>
                 <span className={s.editStatLabel}>{'technologies\nmaîtrisees'}</span>
               </button>
 

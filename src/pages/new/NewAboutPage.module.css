@@ -1,8 +1,27 @@
 /* ============================
-   PAGE
+   PAGE — warm cream theme (about page only)
    ============================ */
 .page {
   position: relative;
+  min-height: 100%;
+  /* Light sage theme — clair */
+  --np-bg:              #E8F2EC;
+  --np-bg-elevated:     #DCE9E2;
+  --np-bg-card:         #CDDFD5;
+  --np-text:            #0E2016;
+  --np-text-secondary:  rgba(14, 32, 22, 0.68);
+  --np-text-muted:      rgba(14, 32, 22, 0.40);
+  --np-border:          rgba(14, 40, 22, 0.12);
+  --np-border-hover:    rgba(14, 40, 22, 0.22);
+  --np-border-green:    rgba(60, 140, 90, 0.28);
+  --np-border-accent:   rgba(60, 140, 90, 0.32);
+  --np-accent:          #2E8A52;
+  --np-accent-dim:      rgba(46, 138, 82, 0.22);
+  --np-accent-glow:     rgba(46, 138, 82, 0.28);
+  --np-accent-subtle:   rgba(46, 138, 82, 0.08);
+  --np-neon:            #5FC880;
+  --np-dot-color:       rgba(14, 40, 22, 0.14);
+  background: var(--np-bg);
 }
 
 /* ============================
@@ -18,6 +37,16 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  /* Dark forest hero — editorial contrast with light page */
+  background: #0D1A12;
+  /* Restore light text on dark hero */
+  --np-text:           #DCE8E0;
+  --np-text-secondary: rgba(200, 225, 210, 0.72);
+  --np-text-muted:     rgba(200, 225, 210, 0.38);
+  --np-border:         rgba(100, 160, 120, 0.12);
+  --np-border-hover:   rgba(100, 160, 120, 0.26);
+  --np-accent:         #7ECFA0;
+  --np-dot-color:      rgba(126, 207, 160, 0.20);
 }
 
 .scanlines {
@@ -40,7 +69,7 @@
   gap: 0;
   flex: 1;
   min-height: 0;
-  padding-bottom: 5rem;
+  padding-bottom: 8rem;
   position: relative;
 }
 
@@ -98,15 +127,15 @@
 @keyframes glitch {
   0%, 85%, 100% { text-shadow: none; transform: none; }
   86% {
-    text-shadow: 3px 0 rgba(127, 255, 0, 0.7), -3px 0 rgba(255, 0, 180, 0.5);
+    text-shadow: 3px 0 rgba(255, 200, 50, 0.7), -3px 0 rgba(255, 50, 150, 0.5);
     transform: skewX(-1.2deg) translateX(2px);
   }
   87% {
-    text-shadow: -2px 0 rgba(127, 255, 0, 0.6), 2px 0 rgba(255, 0, 180, 0.4);
+    text-shadow: -2px 0 rgba(255, 200, 50, 0.6), 2px 0 rgba(255, 50, 150, 0.4);
     transform: skewX(0.8deg) translateX(-1px);
   }
   88%, 91% { text-shadow: none; transform: none; }
-  92% { text-shadow: 1px 0 rgba(127, 255, 0, 0.4); transform: translateX(1px); }
+  92% { text-shadow: 1px 0 rgba(255, 200, 50, 0.4); transform: translateX(1px); }
   93%, 100% { text-shadow: none; transform: none; }
 }
 
@@ -114,7 +143,7 @@
   font-family: 'Courier New', monospace;
   font-size: 0.73rem;
   font-weight: 600;
-  color: var(--np-accent);
+  color: var(--np-accent-pink);
   letter-spacing: 2.5px;
   text-transform: uppercase;
   margin-bottom: 1.4rem;
@@ -260,7 +289,7 @@
   top: 0; left: 0; right: 0; height: 100%;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  background: linear-gradient(to bottom, transparent 0%, rgba(15, 15, 15, 0.5) 100%);
+  background: linear-gradient(to bottom, transparent 0%, var(--np-bg) 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
 }
@@ -289,8 +318,8 @@
    FILM STRIP HORIZONTAL — parcours
    ============================ */
 .filmStripH {
-  background: rgba(4, 6, 4, 0.92);
-  border: 1px solid rgba(46, 94, 9, 0.14);
+  background: rgba(8, 12, 28, 0.97);
+  border: 1px solid rgba(80, 110, 180, 0.18);
   border-radius: 6px;
   overflow: hidden;
   width: 100%;
@@ -299,23 +328,23 @@
 /* Sprocket perforations row (top + bottom) */
 .filmSprocketsRow {
   height: 14px;
-  background-color: rgba(46, 94, 9, 0.03);
+  background-color: rgba(60, 80, 140, 0.06);
   background-image: repeating-linear-gradient(
     90deg,
     transparent 0px,
     transparent 5px,
-    rgba(46, 94, 9, 0.28) 5px,
-    rgba(46, 94, 9, 0.28) 13px,
+    rgba(80, 110, 180, 0.28) 5px,
+    rgba(80, 110, 180, 0.28) 13px,
     transparent 13px,
     transparent 20px
   );
   background-size: 20px 100%;
-  border-bottom: 1px solid rgba(46, 94, 9, 0.1);
+  border-bottom: 1px solid rgba(80, 110, 180, 0.12);
 }
 
 .filmSprocketsRowBottom {
   border-bottom: none;
-  border-top: 1px solid rgba(46, 94, 9, 0.1);
+  border-top: 1px solid rgba(80, 110, 180, 0.12);
 }
 
 /* Scrollable frames row */
@@ -335,7 +364,7 @@
 .filmFrameH {
   flex: 0 0 200px;
   padding: 0.75rem 1.3rem;
-  border-right: 1px solid rgba(46, 94, 9, 0.1);
+  border-right: 1px solid rgba(80, 110, 180, 0.10);
   scroll-snap-align: start;
   transition: background 0.25s;
   position: relative;
@@ -343,7 +372,7 @@
 
 .filmFrameH:last-child { border-right: none; }
 
-.filmFrameH:hover { background: rgba(46, 94, 9, 0.04); }
+.filmFrameH:hover { background: rgba(80, 110, 180, 0.08); }
 
 .filmFrameTop {
   display: flex;
@@ -356,7 +385,7 @@
   font-family: 'Courier New', monospace;
   font-size: 1.4rem;
   font-weight: 700;
-  color: rgba(46, 94, 9, 0.28);
+  color: rgba(200, 160, 80, 0.35);
   line-height: 1;
   letter-spacing: -1px;
 }
@@ -370,12 +399,12 @@
   opacity: 0.8;
 }
 
-/* Recoleta title in film frame */
+/* Recoleta title in film frame — forced off-white (dark strip bg) */
 .filmTitle {
   font-family: var(--np-font-display);
   font-size: 1rem;
   font-weight: 400;
-  color: var(--np-text);
+  color: rgba(237, 225, 205, 0.90);
   margin-bottom: 6px;
   line-height: 1.3;
 }
@@ -383,13 +412,24 @@
 .filmDesc {
   font-family: var(--np-font);
   font-size: 0.78rem;
-  color: var(--np-text-muted);
+  color: rgba(237, 225, 205, 0.50);
   line-height: 1.65;
 }
 
 /* ============================
    EDITORIAL — A propos (magazine spread)
    ============================ */
+
+/* Pink section titles (Parcours, A propos) */
+.aboutSectionTitle {
+  color: var(--np-accent-pink) !important;
+}
+
+/* "Présentation" — lighter/flashier pink, font fallback to avoid bad é glyph */
+.editQuoteTitle {
+  color: #FF90C0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
 
 /* Pull quote in Recoleta italic */
 .editQuote {
@@ -403,6 +443,18 @@
   max-width: 600px;
   padding-left: 1.6rem;
   position: relative;
+}
+
+/* Subtitle line inside quote */
+.editQuoteSub {
+  display: block;
+  font-family: var(--np-font);
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--np-text-secondary);
+  margin-top: 0.5rem;
+  letter-spacing: 0.2px;
 }
 
 /* Left accent bar */
@@ -429,7 +481,7 @@
 .editDivLine {
   flex: 1;
   height: 1px;
-  background: rgba(46, 94, 9, 0.22);
+  background: rgba(80, 110, 180, 0.25);
 }
 
 .editDivOrn {
@@ -465,15 +517,20 @@
   font-weight: 500;
 }
 
-/* Stats column — clickable editorial numbered buttons */
+/* Stats column — dark forest card */
 .editStats {
   display: flex;
   flex-direction: column;
+  background: #0E1C12;
+  border-radius: 14px;
+  border: 1px solid rgba(100, 160, 120, 0.20);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(4, 10, 6, 0.32);
 }
 
 .editStat {
-  padding: 1.4rem 0;
-  border-bottom: 1px solid var(--np-border);
+  padding: 1.3rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: baseline;
   gap: 1rem;
@@ -489,19 +546,23 @@
 }
 
 .editStat:first-child {
-  border-top: 1px solid var(--np-border);
+  border-top: none;
+}
+
+.editStat:last-child {
+  border-bottom: none;
 }
 
 .editStat:hover {
-  background: rgba(46, 94, 9, 0.04);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-/* Large Recoleta numbers */
+/* Large Recoleta numbers — rose pastel sur card sombre */
 .editStatNum {
   font-family: var(--np-font-display);
   font-size: 3rem;
   font-weight: 400;
-  color: var(--np-accent);
+  color: #F0A8C0;
   line-height: 1;
   flex-shrink: 0;
   min-width: 3.5rem;
@@ -509,13 +570,13 @@
 }
 
 .editStat:hover .editStatNum {
-  color: var(--np-text);
+  color: #FFCCE0;
 }
 
 .editStatLabel {
   font-family: 'Courier New', monospace;
   font-size: 0.6rem;
-  color: var(--np-text-muted);
+  color: rgba(237, 228, 210, 0.55);
   letter-spacing: 1px;
   text-transform: uppercase;
   white-space: pre-line;
@@ -545,10 +606,10 @@
   border-radius: 50%;
   background: radial-gradient(
     circle at center,
-    rgba(127, 255, 0, 0.42) 0%,
-    rgba(80, 160, 20, 0.18) 18%,
-    rgba(46, 94, 9, 0.09) 45%,
-    rgba(46, 94, 9, 0.03) 68%,
+    rgba(126, 207, 160, 0.38) 0%,
+    rgba(80, 165, 115, 0.16) 18%,
+    rgba(46, 110, 72, 0.07) 45%,
+    rgba(46, 110, 72, 0.02) 68%,
     transparent 82%
   );
   pointer-events: none;
@@ -566,11 +627,11 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(160, 255, 50, 0.95);
+  background: rgba(180, 245, 210, 0.95);
   box-shadow:
-    0 0 8px rgba(127, 255, 0, 0.8),
-    0 0 20px rgba(127, 255, 0, 0.5),
-    0 0 40px rgba(46, 94, 9, 0.35);
+    0 0 8px rgba(126, 207, 160, 0.8),
+    0 0 20px rgba(126, 207, 160, 0.5),
+    0 0 40px rgba(80, 165, 115, 0.35);
 }
 
 /* Mini card for each tech */
@@ -583,8 +644,8 @@
   align-items: center;
   gap: 5px;
   padding: 10px 14px 8px;
-  background: rgba(20, 20, 20, 0.9);
-  border: 1px solid var(--np-border-hover);
+  background: rgba(10, 15, 32, 0.92);
+  border: 1px solid rgba(80, 110, 180, 0.30);
   border-radius: 10px;
   cursor: pointer;
   white-space: nowrap;
@@ -598,15 +659,15 @@
 }
 
 .sphereTag:hover {
-  border-color: rgba(46, 94, 9, 0.55);
-  background: rgba(22, 30, 14, 0.92);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 10px rgba(46, 94, 9, 0.2);
+  border-color: rgba(200, 130, 20, 0.55);
+  background: rgba(14, 20, 42, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 10px rgba(200, 130, 20, 0.2);
 }
 
 .sphereTagActive {
   border-color: var(--np-accent) !important;
-  background: rgba(30, 50, 10, 0.92) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(46, 94, 9, 0.4) !important;
+  background: rgba(30, 20, 8, 0.92) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(200, 130, 20, 0.4) !important;
 }
 
 .sphereTagIcon {
@@ -625,7 +686,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(46, 94, 9, 0.35);
+  border: 1px solid rgba(200, 130, 20, 0.35);
   border-radius: 4px;
 }
 
@@ -681,7 +742,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(46, 94, 9, 0.1);
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(200, 130, 20, 0.10);
   animation: cardIn 0.32s cubic-bezier(0.34, 1.3, 0.64, 1) both;
 }
 
@@ -765,16 +826,16 @@
 
 .techCard:hover {
   transform: translateY(-3px);
-  border-color: rgba(46, 94, 9, 0.4);
-  background: rgba(46, 94, 9, 0.04);
-  box-shadow: 0 6px 18px rgba(46, 94, 9, 0.1);
+  border-color: rgba(200, 130, 20, 0.40);
+  background: rgba(200, 130, 20, 0.04);
+  box-shadow: 0 6px 18px rgba(200, 130, 20, 0.10);
 }
 
 .techCardActive {
   transform: translateY(-3px) scale(1.03) !important;
   border-color: var(--np-accent) !important;
-  background: rgba(46, 94, 9, 0.09) !important;
-  box-shadow: 0 8px 24px rgba(46, 94, 9, 0.2) !important;
+  background: rgba(200, 130, 20, 0.09) !important;
+  box-shadow: 0 8px 24px rgba(200, 130, 20, 0.20) !important;
 }
 
 .techIcon {
@@ -799,7 +860,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(46, 94, 9, 0.3);
+  border: 1px solid rgba(200, 130, 20, 0.30);
   border-radius: 4px;
   transition: transform 0.2s;
 }
@@ -888,7 +949,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(46, 94, 9, 0.3);
+  border: 1px solid rgba(200, 130, 20, 0.30);
   border-radius: 6px;
 }
 
@@ -1013,8 +1074,8 @@
   align-items: center;
   gap: 6px;
   padding: 5px 10px;
-  background: rgba(46, 94, 9, 0.06);
-  border: 1px solid rgba(46, 94, 9, 0.18);
+  background: rgba(200, 130, 20, 0.06);
+  border: 1px solid rgba(200, 130, 20, 0.18);
   border-radius: 20px;
   cursor: pointer;
   font-family: var(--np-font);
@@ -1026,8 +1087,8 @@
 }
 
 .projectPill:hover {
-  background: rgba(46, 94, 9, 0.14);
-  border-color: rgba(46, 94, 9, 0.4);
+  background: rgba(200, 130, 20, 0.14);
+  border-color: rgba(200, 130, 20, 0.40);
   color: var(--np-text);
   transform: translateY(-1px);
 }

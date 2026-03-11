@@ -3,6 +3,17 @@
    ============================ */
 .page {
   padding-bottom: 0;
+  /* Medium forest theme — neutre */
+  --np-bg:              #142018;
+  --np-bg-card:         #1C2E20;
+  --np-bg-card-hover:   #22362A;
+  --np-bg-input:        #101A14;
+  --np-text:            #C8DDD0;
+  --np-text-secondary:  rgba(185, 215, 200, 0.70);
+  --np-text-muted:      rgba(185, 215, 200, 0.38);
+  --np-border:          rgba(100, 160, 120, 0.14);
+  --np-border-hover:    rgba(100, 160, 120, 0.28);
+  background: var(--np-bg);
 }
 
 .pageHeader {
@@ -40,8 +51,8 @@
 .pageTitle {
   font-family: var(--np-font-display);
   font-size: 4rem;
+  color: var(--np-accent-pink);
   font-weight: 400;
-  color: var(--np-text);
   line-height: 1.05;
   margin-bottom: 1rem;
   letter-spacing: -1px;
@@ -110,13 +121,13 @@
 .termStatus {
   font-family: 'Courier New', monospace;
   font-size: 0.62rem;
-  color: var(--np-accent);
+  color: var(--np-accent-pink);
   letter-spacing: 1px;
 }
 
 .terminalBody {
   padding: 1.5rem;
-  background: rgba(10, 12, 10, 0.7);
+  background: rgba(8, 14, 10, 0.7);
 }
 
 /* Success state */
@@ -301,8 +312,8 @@
 }
 
 .socialLink:hover {
-  color: var(--np-accent);
-  border-bottom-color: var(--np-border-accent);
+  color: var(--np-accent-pink);
+  border-bottom-color: rgba(240, 168, 192, 0.3);
 }
 
 .socialArrow {
@@ -357,6 +368,27 @@
   font-family: var(--np-font);
   font-size: 0.82rem;
   color: var(--np-text-muted);
+}
+
+/* Send button — pink */
+.btnSend {
+  font-family: var(--np-font);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0a0a0a;
+  background: var(--np-accent-pink);
+  border: none;
+  border-radius: var(--np-radius);
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: all 0.25s;
+  align-self: flex-start;
+}
+
+.btnSend:hover {
+  background: #ffb3d0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(240, 168, 192, 0.35);
 }
 
 /* ============================

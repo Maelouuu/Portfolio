@@ -1,190 +1,197 @@
 /* ============================
-   VIEWPORT — pure black outside the frame
+   VIEWPORT
    ============================ */
 .viewport {
   min-height: 100vh;
-  background: #000000;
   position: relative;
 }
 
+.viewportDark    { background: #060E08; }   /* Projects — forêt nuit */
+.viewportNeutral { background: #0C1810; }   /* Contact  — forêt sombre */
+.viewportLight   { background: #BED4C5; }   /* About    — sauge clair */
+
 /* ============================
-   FRAME — fixed on screen, content scrolls INSIDE
+   FRAME — centré, identique sur toutes les pages
+   Marges égales gauche/droite = col. dots + frame-pad
    ============================ */
 .frame {
   position: fixed;
   top: var(--np-frame-pad);
-  left: var(--np-frame-pad);
-  right: calc(var(--np-frame-pad) + 70px);
   bottom: var(--np-frame-pad);
-  border: 1px solid rgba(90, 138, 24, 0.3);
+  /* même marge des deux côtés : colonne dots (70px) + padding */
+  left:  calc(var(--np-frame-pad) + 70px);
+  right: calc(var(--np-frame-pad) + 70px);
   border-radius: 20px;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 1;
-  /* No background — hero area shows the orb through the frame */
+  border: 1px solid rgba(100, 190, 140, 0.28);
 }
 
-/* Subtle vignette on edges */
+.viewportLight .frame {
+  border-color: rgba(14, 40, 22, 0.18);
+}
+
+/* Inner vignette */
 .frame::after {
   content: '';
   position: fixed;
   top: var(--np-frame-pad);
-  left: var(--np-frame-pad);
-  right: calc(var(--np-frame-pad) + 70px);
   bottom: var(--np-frame-pad);
+  left:  calc(var(--np-frame-pad) + 70px);
+  right: calc(var(--np-frame-pad) + 70px);
   border-radius: 20px;
   pointer-events: none;
   z-index: 50;
   box-shadow:
-    inset 0 0 80px rgba(0, 0, 0, 0.25),
-    inset 0 0 30px rgba(0, 0, 0, 0.1);
+    inset 0 0 80px rgba(0, 0, 0, 0.20),
+    inset 0 0 30px rgba(0, 0, 0, 0.08);
 }
 
-/* Custom scrollbar — subtle */
-.frame::-webkit-scrollbar {
-  width: 4px;
-}
-
-.frame::-webkit-scrollbar-track {
-  background: transparent;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.frame::-webkit-scrollbar-thumb {
-  background: var(--np-border-hover);
-  border-radius: 4px;
-}
-
-.frame::-webkit-scrollbar-thumb:hover {
-  background: var(--np-border-accent);
-}
+/* Scrollbar */
+.frame::-webkit-scrollbar { width: 4px; }
+.frame::-webkit-scrollbar-track { background: transparent; margin: 20px 0; }
+.frame::-webkit-scrollbar-thumb { background: var(--np-border-hover); border-radius: 4px; }
+.frame::-webkit-scrollbar-thumb:hover { background: var(--np-border-accent); }
 
 /* ============================
-   GRADUAL BLUR EDGE — bottom only
+   BLUR EDGE — bottom only
    ============================ */
-
-/* Bottom blur — height reduced ~30%, top edge fades smoothly */
 .blurEdgeBottom {
   position: fixed;
   bottom: var(--np-frame-pad);
-  left: var(--np-frame-pad);
+  left:  calc(var(--np-frame-pad) + 70px);
   right: calc(var(--np-frame-pad) + 70px);
   height: 50px;
   pointer-events: none;
   z-index: 2;
-  /* Very subtle color fade — doesn't create a visible band */
-  background: linear-gradient(to top, rgba(15, 15, 15, 0.18) 0%, transparent 100%);
-  /* Container-level mask fades the whole thing softly at the top edge */
+  background: linear-gradient(to top, rgba(6, 14, 8, 0.22) 0%, transparent 100%);
   mask-image: linear-gradient(to top, black 50%, transparent 100%);
   -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
   border-radius: 0 0 20px 20px;
   overflow: hidden;
 }
 
-/* Each blur slice layer */
-.blurEdgeLayer {
+.viewportLight .blurEdgeBottom {
+  background: linear-gradient(to top, rgba(14, 40, 22, 0.12) 0%, transparent 100%);
+}
+
+.blurEdgeLayer { position: absolute; inset: 0; }
+
+/* ============================
+   DOT PATTERNS — identiques gauche + droite, toutes pages
+   Couleurs via custom props — adaptées par viewport
+   ============================ */
+
+/* Valeurs par défaut (dark/neutral) */
+.dotPatternLeft,
+.dotPatternRight {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: calc(70px + var(--np-frame-pad));
+  pointer-events: none;
+  z-index: 0;
+  --dot-outer: rgba(126, 207, 160, 0.50);
+  --dot-mid:   rgba(126, 207, 160, 0.32);
+  --dot-inner: rgba(126, 207, 160, 0.16);
+}
+
+.dotPatternLeft  { left: 0; }
+.dotPatternRight { right: 0; }
+
+/* Couleurs pour fond clair */
+.viewportLight .dotPatternLeft,
+.viewportLight .dotPatternRight {
+  --dot-outer: rgba(14, 40, 22, 0.32);
+  --dot-mid:   rgba(14, 40, 22, 0.20);
+  --dot-inner: rgba(14, 40, 22, 0.10);
+}
+
+/* Sous-éléments partagés */
+.dotLarge, .dotMedium, .dotSmall {
   position: absolute;
   inset: 0;
 }
 
-/* ============================
-   DOT PATTERN — right side only, staggered
-   ============================ */
-.dotPatternRight {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: calc(70px + var(--np-frame-pad));
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  /* Staggered hex pattern — two layers offset by half */
+/* ---- Large dots — zone extérieure ---- */
+.dotLarge {
   background-image:
-    radial-gradient(circle, var(--np-dot-color) var(--np-dot-size), transparent var(--np-dot-size)),
-    radial-gradient(circle, var(--np-dot-color) var(--np-dot-size), transparent var(--np-dot-size));
-  background-size: 18px 18px;
-  background-position: 0 0, 9px 9px;
-  /* Gradient: fades left toward frame */
-  mask-image: linear-gradient(to left, black 0%, black 20%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to left, black 0%, black 20%, transparent 100%);
+    radial-gradient(circle, var(--dot-outer) 2.5px, transparent 2.5px),
+    radial-gradient(circle, var(--dot-outer) 2.5px, transparent 2.5px);
+  background-size: 22px 22px;
+  background-position: 0 0, 11px 11px;
 }
 
-/* ============================
-   GREEN ORB — animated background blob
-   ============================ */
-.orb {
-  position: fixed;
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(46, 94, 9, 0.92) 0%,
-    rgba(46, 94, 9, 0.55) 30%,
-    rgba(46, 94, 9, 0.18) 58%,
-    transparent 75%
-  );
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(75px);
-  will-change: transform;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+/* ---- Medium dots — zone centrale ---- */
+.dotMedium {
+  background-image:
+    radial-gradient(circle, var(--dot-mid) 1.5px, transparent 1.5px),
+    radial-gradient(circle, var(--dot-mid) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+  background-position: 0 0, 9px 9px;
+}
+
+/* ---- Small dots — zone intérieure (près du cadre) ---- */
+.dotSmall {
+  background-image:
+    radial-gradient(circle, var(--dot-inner) 0.8px, transparent 0.8px),
+    radial-gradient(circle, var(--dot-inner) 0.8px, transparent 0.8px);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 7px;
+}
+
+/* Masques de fade : colonne GAUCHE — outer = gauche */
+.dotPatternLeft .dotLarge {
+  mask-image: linear-gradient(to right, black 0%, black 30%, transparent 62%);
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 30%, transparent 62%);
+}
+.dotPatternLeft .dotMedium {
+  mask-image: linear-gradient(to right, transparent 0%, black 22%, black 58%, transparent 82%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 22%, black 58%, transparent 82%);
+}
+.dotPatternLeft .dotSmall {
+  mask-image: linear-gradient(to right, transparent 0%, transparent 50%, black 72%, black 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 50%, black 72%, black 100%);
+}
+
+/* Masques de fade : colonne DROITE — outer = droite */
+.dotPatternRight .dotLarge {
+  mask-image: linear-gradient(to left, black 0%, black 30%, transparent 62%);
+  -webkit-mask-image: linear-gradient(to left, black 0%, black 30%, transparent 62%);
+}
+.dotPatternRight .dotMedium {
+  mask-image: linear-gradient(to left, transparent 0%, black 22%, black 58%, transparent 82%);
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 22%, black 58%, transparent 82%);
+}
+.dotPatternRight .dotSmall {
+  mask-image: linear-gradient(to left, transparent 0%, transparent 50%, black 72%, black 100%);
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, transparent 50%, black 72%, black 100%);
 }
 
 /* ============================
    RESPONSIVE
    ============================ */
 @media (max-width: 900px) {
-  .frame {
+  .frame, .frame::after {
+    left:  calc(var(--np-frame-pad) + 40px);
     right: calc(var(--np-frame-pad) + 40px);
   }
-
-  .frame::after {
-    right: calc(var(--np-frame-pad) + 40px);
-  }
-
-  .dotPatternRight {
-    width: calc(40px + var(--np-frame-pad));
-  }
-
+  .dotPatternLeft, .dotPatternRight { width: calc(40px + var(--np-frame-pad)); }
   .blurEdgeBottom {
+    left:  calc(var(--np-frame-pad) + 40px);
     right: calc(var(--np-frame-pad) + 40px);
   }
 }
 
 @media (max-width: 768px) {
-  .frame {
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
+  .frame, .frame::after {
+    top: 8px; left: 8px; right: 8px; bottom: 8px;
     border-radius: 14px;
   }
-
-  .frame::after {
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    border-radius: 14px;
-  }
-
-  .dotPatternRight {
-    display: none;
-  }
-
-  .orb {
-    width: 300px;
-    height: 300px;
-  }
-
+  .dotPatternLeft, .dotPatternRight { display: none; }
   .blurEdgeBottom {
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
+    bottom: 8px; left: 8px; right: 8px;
     border-radius: 0 0 14px 14px;
   }
 }

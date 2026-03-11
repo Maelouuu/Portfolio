@@ -6,21 +6,25 @@
 import starwarspanoImg from '../../assets/starwarspano.jpg';
 import cinemaImg from '../../assets/cinema.png';
 import lacImg from '../../assets/lac.png';
-import gojoImg from '../../assets/gojo.png';
-import tojiImg from '../../assets/toji.png';
-import yujiImg from '../../assets/yuji.png';
-import pulpImg from '../../assets/pulp.png';
-import porcoImg from '../../assets/porco.png';
-import mononokeImg from '../../assets/mononoké.png';
-import onizukaImg from '../../assets/onizuka.png';
-import grenouilleImg from '../../assets/grenouille.jpg';
-import borne1Img from '../../assets/pixels/borne1.png';
-import borne2Img from '../../assets/pixels/borne2.png';
-import borne3Img from '../../assets/pixels/borne3.png';
-import borne4Img from '../../assets/pixels/borne4.png';
-import borne5Img from '../../assets/pixels/borne5.png';
-import borne6Img from '../../assets/pixels/borne6.png';
-import chateauImg from '../../assets/pixels/chateauCopie.png';
+import encyflone1Img from '../../assets/encyflone1.png';
+import encyflone2Img from '../../assets/encyflone2.png';
+import encyflone3Img from '../../assets/encyflone3.png';
+import encyflone4Img from '../../assets/encyflone4.png';
+import encyflone5Img from '../../assets/encyflone5.png';
+import encyflone6Img from '../../assets/encyflone6.png';
+import ms06_1Img from '../../assets/ms061.png';
+import ms06_2Img from '../../assets/ms062.png';
+import ms06_3Img from '../../assets/ms063.png';
+import afdec1Img from '../../assets/afdec1.png';
+import afdec2Img from '../../assets/afdec2.png';
+import afdec3Img from '../../assets/afdec3.png';
+import liseuse1Img from '../../assets/liseuse1.png';
+import liseuse2Img from '../../assets/liseuse2.png';
+import liseuse3Img from '../../assets/liseuse3.png';
+import afdecApp1Img from '../../assets/afdecApp1.png';
+import afdecApp2Img from '../../assets/afdecApp2.png';
+import afdecApp3Img from '../../assets/afdecApp3.png';
+import afdecApp4Img from '../../assets/afdecApp4.png';
 
 // ---- Types ----
 export interface Project {
@@ -33,6 +37,8 @@ export interface Project {
   status: string;
   featured: boolean;
   images: string[];
+  link?: string;
+  vertical?: boolean; // portrait images (mobile app)
 }
 
 export interface Experience {
@@ -47,12 +53,11 @@ export interface Experience {
 }
 
 // ---- Projects ----
-// Images: 3 per project, no duplicate at same carousel position
 export const projects: Project[] = [
   {
     title: 'Portfolio Interactif',
-    description: 'Portfolio a double identite visuelle avec systeme de themes dynamique, frame CRT et animations CSS avancees. Le projet que vous regardez en ce moment.',
-    longDesc: 'Un portfolio construit de A a Z en React + TypeScript, explorant deux identites visuelles distinctes — un theme Piltover/Zaun inspire de l\'univers Arcane, et ce theme editorial dark avec accents vert sapin. Chaque detail visuel est code a la main : frame CRT fixe avec contenu qui scrolle dedans, orbe verte animee en parallaxe inversee, film strip, marquee CSS, animations au scroll...',
+    description: 'Portfolio à double identité visuelle avec frame éditoriale, animations CSS avancées et système de thèmes dynamique. Le projet que vous regardez en ce moment.',
+    longDesc: 'Un portfolio construit de A à Z en React + TypeScript, explorant deux identités visuelles distinctes — un thème Piltover/Zaun inspiré de l\'univers Arcane, et ce thème éditorial dark avec accents vert sapin et rose pastel. Chaque détail visuel est codé à la main : frame fixe avec contenu qui scrolle dedans, film strip horizontal, marquee CSS, animations au scroll avec IntersectionObserver, sphère 3D de compétences en Canvas...',
     techs: ['React', 'TypeScript', 'CSS Modules', 'Vite'],
     duration: '2 mois',
     year: '2025',
@@ -61,99 +66,101 @@ export const projects: Project[] = [
     images: [starwarspanoImg, cinemaImg, lacImg],
   },
   {
-    title: 'E-Commerce Platform',
-    description: 'Plateforme de vente en ligne complete avec panier, paiement Stripe, gestion des stocks et dashboard admin.',
-    longDesc: 'Application full-stack e-commerce comprenant une interface client moderne avec panier persistant, integration de Stripe pour les paiements securises, un systeme de gestion des stocks en temps reel et un dashboard administrateur avec statistiques de vente et gestion des commandes. Deploye sur un VPS avec Docker.',
-    techs: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    title: 'Encyflone',
+    description: 'Application interactive dédiée à l\'exploration de la biodiversité mondiale — visualisation d\'espèces sur globe 3D, données scientifiques en temps réel et expérience mobile immersive.',
+    longDesc: 'Application de visualisation de la biodiversité mondiale développée pour l\'AFDEC. Les espèces animales et végétales sont géolocalisées et affichées sur un globe 3D interactif (Globe.gl / Three.js). L\'application interroge l\'API GBIF pour récupérer des données scientifiques en temps réel, avec des filtres par taxonomie, région et période. Développée en React Native pour une expérience mobile native, avec un backend FastAPI/Python pour le traitement et la mise en cache des données.',
+    techs: ['React Native', 'Three.js', 'FastAPI', 'Python', 'PostgreSQL'],
+    duration: '2 mois',
+    year: '2025',
+    status: 'Terminé',
+    featured: false,
+    images: [encyflone1Img, encyflone2Img, encyflone3Img, encyflone4Img, encyflone5Img, encyflone6Img],
+    vertical: true,
+  },
+  {
+    title: 'MS06',
+    description: 'Application web permettant de modéliser les activités, rôles et compétences d\'une organisation. Visualisation des relations et évaluation des performances collaborateurs.',
+    longDesc: 'MS06 est une application web de gestion des compétences développée dans le cadre du BUT Informatique. Elle permet de cartographier les activités et les rôles d\'une organisation, d\'évaluer les compétences des collaborateurs par axe et d\'analyser les performances associées. L\'outil vise à rendre visible le capital humain pour aider les organisations à piloter leur transformation. Projet de groupe en méthodologie agile, avec architecture MVC Python/Flask et base de données PostgreSQL.',
+    techs: ['Python', 'Flask', 'PostgreSQL', 'JavaScript', 'HTML / CSS'],
     duration: '3 mois',
     year: '2024',
-    status: 'Termine',
+    status: 'Terminé',
     featured: false,
-    images: [borne1Img, borne2Img, borne3Img],
+    images: [ms06_1Img, ms06_2Img, ms06_3Img],
   },
   {
-    title: 'Chat Temps Reel',
-    description: 'Application de messagerie en temps reel avec WebSockets, salons, messages prives et partage de fichiers.',
-    longDesc: 'Messagerie instantanee full-stack avec Socket.io : salons publics, messages prives chiffres, indicateur de frappe, historique persistant en PostgreSQL et partage de fichiers images/documents jusqu\'a 10 Mo. Interface responsive avec notifications push.',
-    techs: ['React', 'Socket.io', 'Express', 'PostgreSQL'],
-    duration: '2 mois',
-    year: '2024',
-    status: 'Termine',
+    title: 'Application AFDEC',
+    description: 'Outil interne de modélisation organisationnelle pour l\'AFDEC. Cartographie des activités, évaluation des compétences et génération de synthèses décisionnelles, déployé sur Google Cloud.',
+    longDesc: 'Application web complète développée durant mon stage pour implémenter les méthodes de modélisation organisationnelle de l\'AFDEC. L\'outil permet de cartographier les activités, rôles et compétences d\'une organisation, d\'évaluer les performances et de générer des synthèses décisionnelles exportables. Il facilite l\'expérimentation des modèles de transformation organisationnelle développés par l\'association. Backend Python/Flask, base PostgreSQL, déploiement conteneurisé sur Google Cloud Run.',
+    techs: ['Python', 'Flask', 'PostgreSQL', 'JavaScript', 'Google Cloud Run'],
+    duration: '4 mois',
+    year: '2025',
+    status: 'Terminé',
     featured: false,
-    images: [borne4Img, borne5Img, borne6Img],
+    images: [afdecApp1Img, afdecApp2Img, afdecApp3Img, afdecApp4Img],
   },
   {
-    title: 'API REST Blog',
-    description: 'API RESTful complete pour un blog avec CRUD, authentification JWT, pagination et documentation Swagger.',
-    longDesc: 'Backend complet pour une plateforme de blog : endpoints CRUD pour articles, categories et commentaires, authentification et autorisation via JWT avec refresh tokens, pagination cursor-based pour les performances, tests unitaires avec Jest et documentation interactive Swagger/OpenAPI.',
-    techs: ['Node.js', 'Express', 'PostgreSQL', 'Swagger'],
+    title: 'Site vitrine AFDEC',
+    description: 'Site vitrine de l\'AFDEC présentant les travaux et domaines de recherche de l\'association autour du développement des compétences et de la transformation organisationnelle.',
+    longDesc: 'Conception et développement du site vitrine de l\'AFDEC (Association Française de Développement des Compétences). Présentation claire des missions, des méthodes de modélisation et des projets menés autour de la transformation des organisations. Interface sobre et accessible, optimisée pour tous les appareils, avec mise en valeur des initiatives de recherche appliquée de l\'association.',
+    techs: ['HTML / CSS', 'JavaScript', 'Responsive Design'],
     duration: '6 semaines',
-    year: '2023',
-    status: 'Termine',
-    featured: false,
-    images: [gojoImg, onizukaImg, tojiImg],
-  },
-  {
-    title: 'Weather Dashboard',
-    description: 'Dashboard meteo interactif avec visualisations, previsions 7 jours et geolocalisation automatique.',
-    longDesc: 'Application meteo avec geolocalisation automatique et recherche par ville. Affiche les conditions actuelles, previsions horaires sur 24h et journalieres sur 7 jours via l\'API OpenWeather. Visualisations avec Chart.js : courbes de temperature, graphes de precipitation, rose des vents. Mode sombre/clair avec animations de transitions.',
-    techs: ['React', 'Chart.js', 'OpenWeather API'],
-    duration: '3 semaines',
-    year: '2023',
-    status: 'Termine',
-    featured: false,
-    images: [chateauImg, grenouilleImg, yujiImg],
-  },
-  {
-    title: 'Task Manager Pro',
-    description: 'Gestionnaire de taches avec drag & drop, categories, priorites, deadlines et stats de productivite.',
-    longDesc: 'Gestionnaire de taches avance avec drag & drop fluide via DnD Kit, systeme de categories colorees, niveaux de priorite, deadlines avec alertes, sous-taches et commentaires. Tableau de bord de productivite avec graphes Recharts : taux de completion, temps moyen par tache, streaks.',
-    techs: ['React', 'TypeScript', 'DnD Kit', 'Recharts'],
-    duration: '5 semaines',
     year: '2024',
-    status: 'Termine',
+    status: 'Terminé',
     featured: false,
-    images: [mononokeImg, pulpImg, porcoImg],
+    images: [afdec1Img, afdec2Img, afdec3Img],
+    link: 'https://www.afdec.fr/',
+  },
+  {
+    title: 'Liseuse BD / Manga',
+    description: 'Application desktop Java permettant de lire des mangas et bandes dessinées. Navigation par chapitres, bibliothèque locale, chargement dynamique d\'images et interface graphique JavaFX.',
+    longDesc: 'Application de lecture de mangas et bandes dessinées développée en Java dans le cadre du BUT Informatique. L\'utilisateur peut importer des répertoires d\'images organisés en chapitres, naviguer page par page, changer de chapitre et gérer sa bibliothèque locale. Le projet a permis de mettre en pratique la programmation orientée objet, le pattern MVC, la création d\'interfaces graphiques avec JavaFX et la gestion du système de fichiers en Java. Architecture propre avec séparation modèle / vue / contrôleur.',
+    techs: ['Java', 'JavaFX', 'MVC', 'POO'],
+    duration: '3 mois',
+    year: '2023',
+    status: 'Terminé',
+    featured: false,
+    images: [liseuse1Img, liseuse2Img, liseuse3Img],
   },
 ];
 
 // ---- Experiences ----
 export const experiences: Experience[] = [
   {
-    title: 'Stage Developpeur Web',
-    company: 'WebStudio Pro — Marseille',
-    period: 'Avril — Juin 2024',
+    title: 'Stage Développeur Web',
+    company: 'A.F.D.E.C — Paris',
+    period: 'Avril — Juin 2025',
     status: 'completed',
-    description: "Developpement d'une interface client pour la gestion de projets internes. Integration API REST et systeme de notifications.",
-    techs: ['React', 'TypeScript', 'Figma', 'REST API'],
+    description: "Développement de l'application interne de modélisation organisationnelle de l'AFDEC et du site Encyflone dédié à l'exploration de la biodiversité mondiale.",
+    techs: ['Python', 'Flask', 'React Native', 'FastAPI', 'PostgreSQL'],
     progress: 100,
     steps: [
-      { label: 'Onboarding & decouverte', done: true },
+      { label: 'Onboarding & découverte', done: true },
       { label: 'Maquettage & prototypage', done: true },
-      { label: 'Developpement frontend', done: true },
-      { label: 'Integration API & tests', done: true },
+      { label: 'Développement frontend', done: true },
+      { label: 'Intégration API & tests', done: true },
       { label: 'Livraison & soutenance', done: true },
     ],
   },
   {
     title: 'Alternance Full-Stack',
-    company: 'TechNova Solutions — Arles',
-    period: 'Sept 2024 — Aout 2025',
+    company: 'A.F.D.E.C — Paris',
+    period: 'Octobre 2025 — Juin 2026',
     status: 'active',
-    description: "Conception et developpement d'une plateforme SaaS de gestion documentaire. Travail en equipe agile avec sprints et code reviews.",
+    description: "Conception et développement d'une plateforme SaaS de gestion documentaire. Travail en équipe agile avec sprints et code reviews.",
     techs: ['React', 'Node.js', 'PostgreSQL', 'Docker', 'Git'],
     progress: 60,
     steps: [
-      { label: 'Integration equipe & setup', done: true },
+      { label: 'Intégration équipe & setup', done: true },
       { label: "Module d'authentification", done: true },
       { label: 'Dashboard & visualisation', done: true },
-      { label: 'Systeme de notifications', done: false },
-      { label: 'Optimisation & deploiement', done: false },
+      { label: 'Système de notifications', done: false },
+      { label: 'Optimisation & déploiement', done: false },
     ],
   },
 ];
 
-// ---- Tech details (for About modal) ----
+// ---- Tech details (for About modal / sphere) ----
 export interface TechDetail {
   mastery: number;
   projectCount: number;
@@ -161,18 +168,39 @@ export interface TechDetail {
 }
 
 export const techDetails: Record<string, TechDetail> = {
-  'Java':        { mastery: 75, projectCount: 4,  deviconClass: 'devicon-java-plain colored' },
-  'Python':      { mastery: 65, projectCount: 3,  deviconClass: 'devicon-python-plain colored' },
-  'JavaScript':  { mastery: 88, projectCount: 8,  deviconClass: 'devicon-javascript-plain colored' },
-  'TypeScript':  { mastery: 82, projectCount: 5,  deviconClass: 'devicon-typescript-plain colored' },
-  'HTML / CSS':  { mastery: 92, projectCount: 10, deviconClass: 'devicon-html5-plain colored' },
-  'SQL':         { mastery: 72, projectCount: 5,  deviconClass: 'devicon-mysql-plain colored' },
-  'Git':         { mastery: 85, projectCount: 12, deviconClass: 'devicon-git-plain colored' },
-  'React':       { mastery: 90, projectCount: 6,  deviconClass: 'devicon-react-original colored' },
-  'Node.js':     { mastery: 78, projectCount: 4,  deviconClass: 'devicon-nodejs-plain colored' },
-  'Unity':       { mastery: 68, projectCount: 2,  deviconClass: 'devicon-unity-original' },
-  'WebGL':       { mastery: 58, projectCount: 1,  deviconClass: '' },
-  'Figma':       { mastery: 70, projectCount: 5,  deviconClass: 'devicon-figma-plain colored' },
-  'Vite':        { mastery: 80, projectCount: 4,  deviconClass: 'devicon-vitejs-plain colored' },
-  'OpenGL':      { mastery: 55, projectCount: 1,  deviconClass: '' },
+  // ---- Langages ----
+  'Java':         { mastery: 75, projectCount: 4,  deviconClass: 'devicon-java-plain colored' },
+  'Python':       { mastery: 72, projectCount: 5,  deviconClass: 'devicon-python-plain colored' },
+  'JavaScript':   { mastery: 88, projectCount: 8,  deviconClass: 'devicon-javascript-plain colored' },
+  'TypeScript':   { mastery: 82, projectCount: 5,  deviconClass: 'devicon-typescript-plain colored' },
+  'HTML / CSS':   { mastery: 92, projectCount: 10, deviconClass: 'devicon-html5-plain colored' },
+  'SQL':          { mastery: 72, projectCount: 5,  deviconClass: 'devicon-azuresqldatabase-plain colored' },
+  'C#':           { mastery: 65, projectCount: 3,  deviconClass: 'devicon-csharp-plain colored' },
+  'C++':          { mastery: 55, projectCount: 2,  deviconClass: 'devicon-cplusplus-plain colored' },
+  'bash':         { mastery: 60, projectCount: 4,  deviconClass: 'devicon-bash-plain colored' },
+  // ---- Frameworks & Librairies ----
+  'React':        { mastery: 90, projectCount: 6,  deviconClass: 'devicon-react-original colored' },
+  'React Native': { mastery: 60, projectCount: 1,  deviconClass: 'devicon-react-original colored' },
+  'Node.js':      { mastery: 78, projectCount: 4,  deviconClass: 'devicon-nodejs-plain-wordmark colored' },
+  'Flask':        { mastery: 68, projectCount: 3,  deviconClass: 'devicon-flask-original' },
+  'FastAPI':      { mastery: 62, projectCount: 2,  deviconClass: 'devicon-fastapi-plain colored' },
+  'Three.js':     { mastery: 55, projectCount: 1,  deviconClass: 'devicon-threejs-original' },
+  'JavaFX':       { mastery: 60, projectCount: 1,  deviconClass: '' },
+  // ---- Bases de données ----
+  'PostgreSQL':   { mastery: 70, projectCount: 3,  deviconClass: 'devicon-postgresql-plain colored' },
+  'MongoDB':      { mastery: 58, projectCount: 1,  deviconClass: 'devicon-mongodb-plain colored' },
+  // ---- Outils & DevOps ----
+  'Git':          { mastery: 85, projectCount: 12, deviconClass: 'devicon-git-plain colored' },
+  'Docker':       { mastery: 62, projectCount: 3,  deviconClass: 'devicon-docker-plain colored' },
+  'Vite':         { mastery: 80, projectCount: 4,  deviconClass: 'devicon-vitejs-plain colored' },
+  'Linux':        { mastery: 70, projectCount: 5,  deviconClass: 'devicon-linux-plain colored' },
+  'CI/CD':        { mastery: 55, projectCount: 2,  deviconClass: 'devicon-githubactions-plain colored' },
+  'REST APIs':    { mastery: 78, projectCount: 5,  deviconClass: '' },
+  'Figma':        { mastery: 70, projectCount: 5,  deviconClass: 'devicon-figma-plain colored' },
+  'Agile':        { mastery: 72, projectCount: 4,  deviconClass: '' },
+  // ---- Graphique & 3D ----
+  'Unity':        { mastery: 68, projectCount: 2,  deviconClass: 'devicon-unity-original' },
+  'WebGL':        { mastery: 58, projectCount: 1,  deviconClass: '' },
+  'OpenGL':       { mastery: 55, projectCount: 1,  deviconClass: '' },
+  'AR/VR':        { mastery: 52, projectCount: 1,  deviconClass: '' },
 };

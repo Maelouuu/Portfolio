@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import s from './NewNavbar.module.css';
 
 const sections = [
@@ -8,8 +8,11 @@ const sections = [
 ];
 
 const NewNavbar = () => {
+  const location = useLocation();
+  const isAbout = location.pathname === '/' || location.pathname === '/about';
+
   return (
-    <nav className={s.navbar}>
+    <nav className={`${s.navbar} ${isAbout ? s.navbarLight : ''}`}>
       <NavLink to="/" className={s.logo}>
         <span className={s.logoAccent}>M</span>
         <span className={s.logoText}>ael Girardin</span>

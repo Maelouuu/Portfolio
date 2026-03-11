@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import s from './NewContactPage.module.css';
 import shared from './shared.module.css';
+import cvFile from '../../assets/CV Maël 2026.pdf';
 
 /* ============================
    HOOK — fade in on scroll
@@ -45,6 +46,14 @@ const NewContactPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`[Portfolio] Message de ${formData.name}`);
+    const body = encodeURIComponent(
+      `Nom : ${formData.name}\nEmail : ${formData.email}\n\n${formData.message}`
+    );
+    window.open(
+      `mailto:mael.pierre.girardin@icloud.com?subject=${subject}&body=${body}`,
+      '_blank'
+    );
     setSubmitted(true);
   };
 
@@ -144,7 +153,7 @@ const NewContactPage = () => {
                     </div>
                   </div>
 
-                  <button type="submit" className={shared.btnPrimary}>
+                  <button type="submit" className={s.btnSend}>
                     Envoyer →
                   </button>
                 </form>
@@ -159,11 +168,11 @@ const NewContactPage = () => {
               <div className={s.infoList}>
                 <div className={s.infoItem}>
                   <span className={s.infoKey}>email</span>
-                  <span className={s.infoVal}>johndoe@email.com</span>
+                  <span className={s.infoVal}>mael.pierre.girardin@icloud.com</span>
                 </div>
                 <div className={s.infoItem}>
                   <span className={s.infoKey}>tel</span>
-                  <span className={s.infoVal}>+33 6 12 34 56 78</span>
+                  <span className={s.infoVal}>+33 6 44 33 80 07</span>
                 </div>
                 <div className={s.infoItem}>
                   <span className={s.infoKey}>loc</span>
@@ -175,12 +184,25 @@ const NewContactPage = () => {
             <div className={s.sidebarSection}>
               <p className={s.sidebarLabel}>// liens</p>
               <div className={s.socialLinks}>
-                {['GitHub', 'LinkedIn', 'Twitter'].map((name) => (
-                  <a key={name} href="#" className={s.socialLink} onClick={(e) => e.preventDefault()}>
-                    <span className={s.socialArrow}>↗</span>
-                    {name}
-                  </a>
-                ))}
+                <a
+                  href="https://github.com/Maelouuu"
+                  className={s.socialLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className={s.socialArrow}>↗</span>
+                  GitHub
+                </a>
+                <a
+                  href={cvFile}
+                  className={s.socialLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="CV Maël Girardin 2026.pdf"
+                >
+                  <span className={s.socialArrow}>↗</span>
+                  CV
+                </a>
               </div>
             </div>
 
@@ -193,7 +215,7 @@ const NewContactPage = () => {
                 </div>
                 <div className={s.availItem}>
                   <span className={s.availDotOrange} />
-                  <span className={s.availText}>Alternance — Aout 2025</span>
+                  <span className={s.availText}>Alternance — Aout 2026</span>
                 </div>
               </div>
             </div>

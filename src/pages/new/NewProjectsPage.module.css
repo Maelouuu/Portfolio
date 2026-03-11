@@ -80,6 +80,8 @@
   transition: border-color 0.3s, box-shadow 0.3s;
   overflow: hidden;
   cursor: default;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Mouse spotlight glow */
@@ -89,7 +91,7 @@
   inset: 0;
   background: radial-gradient(
     280px circle at var(--spot-x) var(--spot-y),
-    rgba(111, 166, 32, 0.07) 0%,
+    rgba(126, 207, 160, 0.07) 0%,
     transparent 100%
   );
   opacity: 0;
@@ -119,8 +121,8 @@
 }
 
 .projectCard:hover {
-  border-color: rgba(111, 166, 32, 0.2);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(111, 166, 32, 0.06);
+  border-color: rgba(126, 207, 160, 0.2);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(126, 207, 160, 0.06);
 }
 
 /* Featured card — spans full width */
@@ -169,7 +171,7 @@
   font-family: var(--np-font);
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--np-text);
+  color: var(--np-accent-pink);
   line-height: 1.2;
   transition: color 0.25s;
 }
@@ -225,6 +227,60 @@
   gap: 6px;
 }
 
+/* Thumbnail at the bottom of the card */
+.cardThumb {
+  margin-top: auto;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  margin-bottom: -2rem;
+  height: 180px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Portrait images (mobile apps) */
+.cardThumbPortrait {
+  height: 200px;
+}
+
+.cardThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: brightness(0.55) saturate(0.75);
+  transition: filter 0.3s, transform 0.4s ease;
+}
+
+.projectCard:hover .cardThumbImg {
+  filter: brightness(0.75) saturate(1);
+  transform: scale(1.04);
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 1rem;
+  padding: 0.55rem 1.1rem;
+  background: rgba(126, 207, 160, 0.08);
+  border: 1px solid rgba(126, 207, 160, 0.28);
+  border-radius: 6px;
+  font-family: var(--np-font);
+  font-size: 0.78rem;
+  color: var(--np-accent);
+  text-decoration: none;
+  transition: all 0.2s;
+  width: fit-content;
+}
+
+.projectLink:hover {
+  background: rgba(126, 207, 160, 0.15);
+  border-color: rgba(126, 207, 160, 0.5);
+  color: var(--np-text);
+}
+
 /* ============================
    BANNER
    ============================ */
@@ -276,7 +332,7 @@
   font-family: var(--np-font-display);
   font-size: 3.5rem;
   font-weight: 400;
-  color: rgba(46, 94, 9, 0.2);
+  color: rgba(126, 207, 160, 0.2);
   line-height: 1;
   letter-spacing: -2px;
 }
@@ -305,7 +361,7 @@
   font-family: var(--np-font);
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--np-text);
+  color: var(--np-accent-pink);
   line-height: 1.2;
 }
 
@@ -398,7 +454,7 @@
   font-family: var(--np-font);
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--np-text);
+  color: var(--np-accent-pink);
   margin-bottom: 3px;
 }
 
@@ -533,7 +589,7 @@
   max-height: 88vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(46, 94, 9, 0.08);
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(126, 207, 160, 0.08);
   scrollbar-width: none;
 }
 
@@ -563,6 +619,39 @@
   color: var(--np-accent);
 }
 
+/* Wide modal variant — for side-by-side (portrait images) */
+.projectModalWide {
+  max-width: 840px;
+}
+
+/* Side-by-side layout */
+.modalSideLayout {
+  display: flex;
+  flex-direction: row;
+  min-height: 440px;
+}
+
+/* Left phone panel */
+.modalPhonePanel {
+  width: 220px;
+  flex-shrink: 0;
+  background: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+}
+
+/* Details side — scrollable */
+.modalDetailsSide {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  border-left: 1px solid var(--np-border);
+}
+
+.modalDetailsSide::-webkit-scrollbar { display: none; }
+
 /* Carousel */
 .carousel {
   position: relative;
@@ -570,6 +659,17 @@
   aspect-ratio: 16 / 9;
   background: #0a0a0a;
   overflow: hidden;
+}
+
+/* Phone-shaped carousel inside side panel */
+.carouselPhone {
+  width: 180px;
+  aspect-ratio: unset;
+  height: 380px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.4), 0 8px 32px rgba(0, 0, 0, 0.6);
 }
 
 .carouselImg {
@@ -604,8 +704,8 @@
 }
 
 .carouselArrow:hover {
-  background: rgba(46, 94, 9, 0.35);
-  border-color: rgba(46, 94, 9, 0.5);
+  background: rgba(126, 207, 160, 0.35);
+  border-color: rgba(126, 207, 160, 0.5);
 }
 
 .carouselArrowLeft { left: 12px; }

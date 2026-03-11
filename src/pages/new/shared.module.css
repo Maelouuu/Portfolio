@@ -89,7 +89,7 @@
 }
 
 .btnPrimary:hover {
-  background: #7fb825;
+  background: #FFC055;
   transform: translateY(-1px);
   box-shadow: 0 4px 16px var(--np-accent-glow);
 }

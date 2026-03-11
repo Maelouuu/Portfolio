@@ -5,7 +5,7 @@ import s from './NewProjectsPage.module.css';
 import shared from './shared.module.css';
 import { projects, experiences } from './data';
 import type { Project } from './data';
-import banniereImg from '../../assets/banniereVerte3.jpg';
+import banniereImg from '../../assets/violont.gif';
 
 /* ============================
    HOOK — fade in on scroll
@@ -81,9 +81,73 @@ const ProjectModal = ({
   const prev = () => setSlide((s) => (s === 0 ? project.images.length - 1 : s - 1));
   const next = () => setSlide((s) => (s === project.images.length - 1 ? 0 : s + 1));
 
+  const carouselNode = (
+    <div className={`${s.carousel} ${project.vertical ? s.carouselPhone : ''}`}>
+      <img
+        key={slide}
+        src={project.images[slide]}
+        alt={`${project.title} — capture ${slide + 1}`}
+        className={s.carouselImg}
+      />
+      <button className={`${s.carouselArrow} ${s.carouselArrowLeft}`} onClick={prev} aria-label="Precedent">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M11 4L6 9L11 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
+      <button className={`${s.carouselArrow} ${s.carouselArrowRight}`} onClick={next} aria-label="Suivant">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M7 4L12 9L7 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
+      <div className={s.carouselControls}>
+        <span className={s.carouselCounter}>{slide + 1} / {project.images.length}</span>
+        <div className={s.carouselDots}>
+          {project.images.map((_, i) => (
+            <button
+              key={i}
+              className={`${s.carouselDot} ${i === slide ? s.carouselDotActive : ''}`}
+              onClick={() => setSlide(i)}
+              aria-label={`Image ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  const detailsNode = (
+    <div className={`${s.modalDetails} ${project.vertical ? s.modalDetailsSide : ''}`}>
+      <div className={s.projectMeta}>
+        <span className={`${s.projectStatus} ${project.status === 'En cours' ? s.statusActive : ''}`}>
+          {project.status}
+        </span>
+        <span className={s.projectYear}>{project.year}</span>
+        <span className={s.projectDuration}>{project.duration}</span>
+      </div>
+      <h2 className={s.modalProjectTitle}>{project.title}</h2>
+      <p className={s.modalProjectDesc}>{project.longDesc}</p>
+      <div className={s.projectTechs}>
+        {project.techs.map((t) => (
+          <span key={t} className={shared.techBadge}>{t}</span>
+        ))}
+      </div>
+      {project.link && (
+        <a href={project.link} target="_blank" rel="noopener noreferrer" className={s.projectLink}>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden>
+            <path d="M5 2H2.5A1.5 1.5 0 001 3.5v7A1.5 1.5 0 002.5 12h7A1.5 1.5 0 0011 10.5V8M8 1h4m0 0v4m0-4L6 7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Voir le site
+        </a>
+      )}
+    </div>
+  );
+
   return createPortal(
     <div className={s.modalOverlay} onClick={onClose}>
-      <div className={s.projectModal} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={`${s.projectModal} ${project.vertical ? s.projectModalWide : ''}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close button */}
         <button className={s.modalClose} onClick={onClose} aria-label="Fermer">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -91,60 +155,21 @@ const ProjectModal = ({
           </svg>
         </button>
 
-        {/* Carousel */}
-        <div className={s.carousel}>
-          <img
-            key={slide}
-            src={project.images[slide]}
-            alt={`${project.title} — capture ${slide + 1}`}
-            className={s.carouselImg}
-          />
-
-          <button className={`${s.carouselArrow} ${s.carouselArrowLeft}`} onClick={prev} aria-label="Precedent">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M11 4L6 9L11 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-          <button className={`${s.carouselArrow} ${s.carouselArrowRight}`} onClick={next} aria-label="Suivant">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M7 4L12 9L7 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-
-          <div className={s.carouselControls}>
-            <span className={s.carouselCounter}>{slide + 1} / {project.images.length}</span>
-            <div className={s.carouselDots}>
-              {project.images.map((_, i) => (
-                <button
-                  key={i}
-                  className={`${s.carouselDot} ${i === slide ? s.carouselDotActive : ''}`}
-                  onClick={() => setSlide(i)}
-                  aria-label={`Image ${i + 1}`}
-                />
-              ))}
+        {project.vertical ? (
+          /* Side-by-side layout for portrait / mobile apps */
+          <div className={s.modalSideLayout}>
+            <div className={s.modalPhonePanel}>
+              {carouselNode}
             </div>
+            {detailsNode}
           </div>
-        </div>
-
-        {/* Details */}
-        <div className={s.modalDetails}>
-          <div className={s.projectMeta}>
-            <span className={`${s.projectStatus} ${project.status === 'En cours' ? s.statusActive : ''}`}>
-              {project.status}
-            </span>
-            <span className={s.projectYear}>{project.year}</span>
-            <span className={s.projectDuration}>{project.duration}</span>
-          </div>
-
-          <h2 className={s.modalProjectTitle}>{project.title}</h2>
-          <p className={s.modalProjectDesc}>{project.longDesc}</p>
-
-          <div className={s.projectTechs}>
-            {project.techs.map((t) => (
-              <span key={t} className={shared.techBadge}>{t}</span>
-            ))}
-          </div>
-        </div>
+        ) : (
+          /* Standard stacked layout */
+          <>
+            {carouselNode}
+            {detailsNode}
+          </>
+        )}
       </div>
     </div>,
     document.body
@@ -230,6 +255,11 @@ const NewProjectsPage = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Thumbnail preview — bottom of card */}
+              <div className={`${s.cardThumb} ${project.vertical ? s.cardThumbPortrait : ''}`}>
+                <img src={project.images[0]} alt="" className={s.cardThumbImg} />
+              </div>
             </div>
           ))}
         </div>
@@ -245,7 +275,7 @@ const NewProjectsPage = () => {
         <FadeSection className={shared.section}>
           <h2 className={shared.sectionTitle}>
             <span className={shared.sectionTitleDot} />
-            Experience
+            Experiences
           </h2>
           <div className={s.expList}>
             {experiences.map((exp, i) => (
