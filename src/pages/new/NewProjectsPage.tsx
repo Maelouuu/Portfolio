@@ -300,6 +300,24 @@ const NewProjectsPage = () => {
                     <span className={s.expItemCompany}>{exp.company}</span>
                   </div>
                   <p className={s.expItemDesc}>{exp.description}</p>
+
+                  {/* Jalons clés — extrait des missions */}
+                  <div className={s.expItemSteps}>
+                    <span className={s.expItemStepsLabel}>Jalons</span>
+                    <ul className={s.expStepList}>
+                      {exp.steps.map((step) => (
+                        <li
+                          key={step.label}
+                          className={`${s.expStep} ${step.done ? s.expStepDone : s.expStepPending}`}
+                        >
+                          <span className={s.expStepIcon}>{step.done ? '✓' : '○'}</span>
+                          {step.label}
+                        </li>
+                      ))}
+                      <li className={s.expStepMore}>· · · entre autres</li>
+                    </ul>
+                  </div>
+
                   <div className={s.expItemTechs}>
                     {exp.techs.map((t) => (
                       <span key={t} className={shared.techBadge}>{t}</span>

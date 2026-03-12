@@ -410,6 +410,70 @@
   line-height: 1.75;
 }
 
+.expItemSteps {
+  margin-top: 0.1rem;
+}
+
+.expItemStepsLabel {
+  font-family: 'Courier New', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--np-text-muted);
+  display: block;
+  margin-bottom: 0.55rem;
+}
+
+.expStepList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.expStep {
+  font-family: var(--np-font);
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  line-height: 1.4;
+}
+
+.expStepIcon {
+  font-size: 0.65rem;
+  width: 14px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.expStepDone {
+  color: var(--np-text-secondary);
+}
+
+.expStepDone .expStepIcon {
+  color: var(--np-accent);
+}
+
+.expStepPending {
+  color: var(--np-text-muted);
+}
+
+.expStepPending .expStepIcon {
+  color: var(--np-text-muted);
+}
+
+.expStepMore {
+  font-family: 'Courier New', monospace;
+  font-size: 0.68rem;
+  color: var(--np-text-muted);
+  padding-left: 23px;
+  margin-top: 3px;
+  letter-spacing: 1.5px;
+  opacity: 0.6;
+}
+
 .expItemTechs {
   display: flex;
   flex-wrap: wrap;
