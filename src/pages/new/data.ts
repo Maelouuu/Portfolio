@@ -3,9 +3,6 @@
    ============================ */
 
 // ---- Image imports ----
-import starwarspanoImg from '../../assets/starwarspano.jpg';
-import cinemaImg from '../../assets/cinema.png';
-import lacImg from '../../assets/lac.png';
 import encyflone1Img from '../../assets/encyflone1.png';
 import encyflone2Img from '../../assets/encyflone2.png';
 import encyflone3Img from '../../assets/encyflone3.png';
@@ -55,25 +52,14 @@ export interface Experience {
 // ---- Projects ----
 export const projects: Project[] = [
   {
-    title: 'Portfolio Interactif',
-    description: 'Portfolio à double identité visuelle avec frame éditoriale, animations CSS avancées et système de thèmes dynamique. Le projet que vous regardez en ce moment.',
-    longDesc: 'Un portfolio construit de A à Z en React + TypeScript, explorant deux identités visuelles distinctes — un thème Piltover/Zaun inspiré de l\'univers Arcane, et ce thème éditorial dark avec accents vert sapin et rose pastel. Chaque détail visuel est codé à la main : frame fixe avec contenu qui scrolle dedans, film strip horizontal, marquee CSS, animations au scroll avec IntersectionObserver, sphère 3D de compétences en Canvas...',
-    techs: ['React', 'TypeScript', 'CSS Modules', 'Vite'],
-    duration: '2 mois',
-    year: '2025',
-    status: 'En cours',
-    featured: true,
-    images: [starwarspanoImg, cinemaImg, lacImg],
-  },
-  {
     title: 'Encyflone',
     description: 'Application interactive dédiée à l\'exploration de la biodiversité mondiale — visualisation d\'espèces sur globe 3D, données scientifiques en temps réel et expérience mobile immersive.',
     longDesc: 'Application de visualisation de la biodiversité mondiale développée pour l\'AFDEC. Les espèces animales et végétales sont géolocalisées et affichées sur un globe 3D interactif (Globe.gl / Three.js). L\'application interroge l\'API GBIF pour récupérer des données scientifiques en temps réel, avec des filtres par taxonomie, région et période. Développée en React Native pour une expérience mobile native, avec un backend FastAPI/Python pour le traitement et la mise en cache des données.',
     techs: ['React Native', 'Three.js', 'FastAPI', 'Python', 'PostgreSQL'],
     duration: '2 mois',
-    year: '2025',
-    status: 'Terminé',
-    featured: false,
+    year: '2025-2026',
+    status: 'En cours',
+    featured: true,
     images: [encyflone1Img, encyflone2Img, encyflone3Img, encyflone4Img, encyflone5Img, encyflone6Img],
     vertical: true,
   },
@@ -83,7 +69,7 @@ export const projects: Project[] = [
     longDesc: 'MS06 est une application web de gestion des compétences développée dans le cadre du BUT Informatique. Elle permet de cartographier les activités et les rôles d\'une organisation, d\'évaluer les compétences des collaborateurs par axe et d\'analyser les performances associées. L\'outil vise à rendre visible le capital humain pour aider les organisations à piloter leur transformation. Projet de groupe en méthodologie agile, avec architecture MVC Python/Flask et base de données PostgreSQL.',
     techs: ['Python', 'Flask', 'PostgreSQL', 'JavaScript', 'HTML / CSS'],
     duration: '3 mois',
-    year: '2024',
+    year: '2025',
     status: 'Terminé',
     featured: false,
     images: [ms06_1Img, ms06_2Img, ms06_3Img],
@@ -94,8 +80,8 @@ export const projects: Project[] = [
     longDesc: 'Application web complète développée durant mon stage pour implémenter les méthodes de modélisation organisationnelle de l\'AFDEC. L\'outil permet de cartographier les activités, rôles et compétences d\'une organisation, d\'évaluer les performances et de générer des synthèses décisionnelles exportables. Il facilite l\'expérimentation des modèles de transformation organisationnelle développés par l\'association. Backend Python/Flask, base PostgreSQL, déploiement conteneurisé sur Google Cloud Run.',
     techs: ['Python', 'Flask', 'PostgreSQL', 'JavaScript', 'Google Cloud Run'],
     duration: '4 mois',
-    year: '2025',
-    status: 'Terminé',
+    year: '2025-2026',
+    status: 'En cours',
     featured: false,
     images: [afdecApp1Img, afdecApp2Img, afdecApp3Img, afdecApp4Img],
   },
@@ -105,7 +91,7 @@ export const projects: Project[] = [
     longDesc: 'Conception et développement du site vitrine de l\'AFDEC (Association Française de Développement des Compétences). Présentation claire des missions, des méthodes de modélisation et des projets menés autour de la transformation des organisations. Interface sobre et accessible, optimisée pour tous les appareils, avec mise en valeur des initiatives de recherche appliquée de l\'association.',
     techs: ['HTML / CSS', 'JavaScript', 'Responsive Design'],
     duration: '6 semaines',
-    year: '2024',
+    year: '2025',
     status: 'Terminé',
     featured: false,
     images: [afdec1Img, afdec2Img, afdec3Img],

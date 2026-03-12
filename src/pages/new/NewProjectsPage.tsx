@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import s from './NewProjectsPage.module.css';
 import shared from './shared.module.css';
@@ -122,7 +122,6 @@ const ProjectModal = ({
           {project.status}
         </span>
         <span className={s.projectYear}>{project.year}</span>
-        <span className={s.projectDuration}>{project.duration}</span>
       </div>
       <h2 className={s.modalProjectTitle}>{project.title}</h2>
       <p className={s.modalProjectDesc}>{project.longDesc}</p>
@@ -239,7 +238,6 @@ const NewProjectsPage = () => {
                       {project.status}
                     </span>
                     <span className={s.projectYear}>{project.year}</span>
-                    <span className={s.projectDuration}>{project.duration}</span>
                   </div>
                   <h3 className={`${s.projectTitle} ${project.featured ? s.projectTitleFeatured : ''}`}>
                     {project.title}
@@ -257,8 +255,14 @@ const NewProjectsPage = () => {
               </div>
 
               {/* Thumbnail preview — bottom of card */}
-              <div className={`${s.cardThumb} ${project.vertical ? s.cardThumbPortrait : ''}`}>
-                <img src={project.images[0]} alt="" className={s.cardThumbImg} />
+              <div className={`${s.cardThumb} ${project.vertical && !project.featured ? s.cardThumbPortrait : ''} ${project.vertical && project.featured ? s.cardThumbPortraitFeatured : ''}`}>
+                {project.vertical && project.featured ? (
+                  project.images.slice(0, 3).map((img, idx) => (
+                    <img key={idx} src={img} alt="" className={s.cardThumbPhoneImg} />
+                  ))
+                ) : (
+                  <img src={project.images[0]} alt="" className={s.cardThumbImg} />
+                )}
               </div>
             </div>
           ))}
@@ -319,12 +323,6 @@ const NewProjectsPage = () => {
       {/* ======================== FOOTER ======================== */}
       <footer className={shared.footer}>
         <div className={shared.footerContent}>
-          <Link to="/legacy" className={shared.legacyBtn}>
-            Voir l'ancienne version du portfolio
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
           <p className={shared.copyright}>&copy; 2025 Mael Girardin. Tous droits reserves.</p>
         </div>
       </footer>

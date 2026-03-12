@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import s from './NewContactPage.module.css';
 import shared from './shared.module.css';
 import cvFile from '../../assets/CV Maël 2026.pdf';
@@ -226,12 +225,6 @@ const NewContactPage = () => {
       {/* ======================== FOOTER ======================== */}
       <footer className={shared.footer}>
         <div className={shared.footerContent}>
-          <Link to="/legacy" className={shared.legacyBtn}>
-            Voir l'ancienne version du portfolio
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
           <p className={shared.copyright}>&copy; 2025 Mael Girardin. Tous droits reserves.</p>
         </div>
       </footer>
