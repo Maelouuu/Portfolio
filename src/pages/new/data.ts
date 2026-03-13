@@ -139,7 +139,7 @@ export const experiences: Experience[] = [
     progress: 60,
     steps: [
       { label: "Modélisation OPTIQ d'une structure", done: true },
-      { label: "inssertion carto + extraction des données", done: true },
+      { label: "Insertion carto + extraction des données", done: true },
       { label: 'Dashboard & visualisation', done: true },
       { label: "Identité visuelle de l'app et du site vitrine", done: false },
       { label: 'Optimisation & déploiement large', done: false },

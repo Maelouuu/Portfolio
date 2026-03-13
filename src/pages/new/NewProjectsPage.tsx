@@ -206,10 +206,10 @@ const NewProjectsPage = () => {
     <div className={s.page}>
       {/* ======================== HEADER ======================== */}
       <section className={s.pageHeader}>
-        <p className={s.headerIndex}>01 / Realisations</p>
+        <p className={s.headerIndex}>01 / Réalisations</p>
         <h1 className={s.pageTitle}>Projets</h1>
         <p className={s.pageDesc}>
-          Applications, outils et experiences numeriques — du prototype a la production.
+          Applications, outils et expériences numériques — du prototype à la production.
         </p>
       </section>
 
@@ -279,7 +279,7 @@ const NewProjectsPage = () => {
         <FadeSection className={shared.section}>
           <h2 className={shared.sectionTitle}>
             <span className={shared.sectionTitleDot} />
-            Experiences
+            Expériences
           </h2>
           <div className={s.expList}>
             {experiences.map((exp, i) => (
@@ -341,7 +341,7 @@ const NewProjectsPage = () => {
       {/* ======================== FOOTER ======================== */}
       <footer className={shared.footer}>
         <div className={shared.footerContent}>
-          <p className={shared.copyright}>&copy; 2025 Mael Girardin. Tous droits reserves.</p>
+          <p className={shared.copyright}>&copy; 2025 Maël Girardin. Tous droits réservés.</p>
         </div>
       </footer>
 

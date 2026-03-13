@@ -60,10 +60,10 @@ const NewContactPage = () => {
     <div className={s.page}>
       {/* ======================== HEADER ======================== */}
       <section className={s.pageHeader}>
-        <p className={s.headerIndex}>03 / Echangeons</p>
+        <p className={s.headerIndex}>03 / Échangeons</p>
         <h1 className={s.pageTitle}>Contact</h1>
         <p className={s.pageDesc}>
-          Un projet en tete ? Je suis disponible pour discuter de collaborations, de stages ou juste echanger.
+          Un projet en tête ? Je suis disponible pour discuter de collaborations, de stages ou juste échanger.
         </p>
       </section>
 
@@ -87,9 +87,9 @@ const NewContactPage = () => {
               {submitted ? (
                 <div className={s.successState}>
                   <div className={s.successAscii}>
-                    <span className={s.successLine}>{'> Message recu ✓'}</span>
-                    <span className={s.successLine}>{'> Reponse sous 24h...'}</span>
-                    <span className={s.successLine}>{'> Connexion fermee.'}</span>
+                    <span className={s.successLine}>{'> Message reçu ✓'}</span>
+                    <span className={s.successLine}>{'> Réponse sous 24h...'}</span>
+                    <span className={s.successLine}>{'> Connexion fermée.'}</span>
                   </div>
                   <button
                     className={shared.btnSecondary}
@@ -225,7 +225,7 @@ const NewContactPage = () => {
       {/* ======================== FOOTER ======================== */}
       <footer className={shared.footer}>
         <div className={shared.footerContent}>
-          <p className={shared.copyright}>&copy; 2025 Mael Girardin. Tous droits reserves.</p>
+          <p className={shared.copyright}>&copy; 2025 Maël Girardin. Tous droits réservés.</p>
         </div>
       </footer>
     </div>
