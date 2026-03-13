@@ -37,3 +37,20 @@
   --np-radius: 8px;
   --np-radius-lg: 12px;
 }
+
+/* Fix Recoleta DEMO : les caractères accentués latins sont remplacés par des logos
+   dans la version démo. On force Georgia pour toute la plage accentuée. */
+@font-face {
+  font-family: 'Recoleta';
+  src: local('Georgia'), local('Times New Roman');
+  unicode-range: U+00C0-00FF;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Recoleta';
+  src: local('Georgia'), local('Times New Roman');
+  unicode-range: U+00C0-00FF;
+  font-weight: 400;
+  font-style: italic;
+}

@@ -44,9 +44,9 @@ export interface Experience {
   period: string;
   status: 'completed' | 'active';
   description: string;
-  techs: string[];
-  progress: number;
-  steps: { label: string; done: boolean }[];
+  techs?: string[];
+  progress?: number;
+  steps?: { label: string; done: boolean }[];
 }
 
 // ---- Projects ----
@@ -113,23 +113,6 @@ export const projects: Project[] = [
 // ---- Experiences ----
 export const experiences: Experience[] = [
   {
-    title: 'Stage Développeur Web',
-    company: 'A.F.D.E.C — Paris',
-    period: 'Avril — Juin 2025',
-    status: 'completed',
-    description: "Initialisation du développement de l'application interne de modélisation organisationnelle de l'AFDEC. 2 extensions mise en place.",
-    techs: ['Python', 'Flask', 'React Native', 'FastAPI', 'PostgreSQL'],
-    progress: 100,
-    steps: [
-      { label: 'restructuration architecture', done: true },
-      { label: 'Maquettage & prototypage', done: true },
-      { label: 'Développement frontend', done: true },
-      { label: "Intégration API et modèle d'IA", done: true },
-      { label: 'Mise en place de test (intégration,fonctionnel, unitaire)', done: true },
-    ],
-  },
-
-  {
     title: 'Alternance Full-Stack',
     company: 'A.F.D.E.C — Paris',
     period: 'Octobre 2025 — Juin 2026',
@@ -143,6 +126,29 @@ export const experiences: Experience[] = [
       { label: 'Dashboard & visualisation', done: true },
       { label: "Identité visuelle de l'app et du site vitrine", done: false },
       { label: 'Optimisation & déploiement large', done: false },
+    ],
+  },
+  {
+    title: 'SARL de vente de solutions',
+    company: 'Entrepreneuriat',
+    period: 'Juin 2025 — actuel',
+    status: 'active',
+    description: "On développe des solutions pour des petites entreprises. Ils viennent nous voir avec une problématique, une mauvaise vision de leurs stock, ou une gestion des plannings houleuse. On propose une solution en échange avec les clients pour leurs proposer quelque chose de visuellement agréable, de techniquement pro et tout cela à prix réduit en comparaison à des entreprises plus massives.",
+  },
+  {
+    title: 'Stage Développeur Web',
+    company: 'A.F.D.E.C — Paris',
+    period: 'Avril — Juin 2025',
+    status: 'completed',
+    description: "Initialisation du développement de l'application interne de modélisation organisationnelle de l'AFDEC. 2 extensions mise en place.",
+    techs: ['Python', 'Flask', 'React Native', 'FastAPI', 'PostgreSQL'],
+    progress: 100,
+    steps: [
+      { label: 'Restructuration architecture', done: true },
+      { label: 'Maquettage & prototypage', done: true },
+      { label: 'Développement frontend', done: true },
+      { label: "Intégration API et modèle d'IA", done: true },
+      { label: 'Mise en place de tests (intégration, fonctionnel, unitaire)', done: true },
     ],
   },
 ];

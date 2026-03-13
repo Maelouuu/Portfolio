@@ -27,7 +27,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--np-font-display);
+  font-family: var(--np-font);
   font-size: 2rem;
   font-weight: 400;
   color: var(--np-text);

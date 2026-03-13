@@ -10,7 +10,7 @@ import { projects, techDetails } from './data';
    DATA
    ============================ */
 const timeline = [
-  { year: '2022', title: 'Baccalauréat', desc: "Obtention du bac avec mention Bien" },
+  { year: '2022', title: 'Baccalaur\u00e9at', desc: "Obtention du Bac avec mention Bien" },
   { year: '2023', title: 'BUT 1 Informatique', desc: "IUT d'Arles — 1ère année : Bases en programmation et algorithmique" },
   { year: '2024', title: 'BUT 2 Informatique', desc: "IUT d'Arles — 2ème année : Développement web, bases de données, programmation orientée objet" },
   { year: '2025', title: 'BUT 3 Informatique', desc: "IUT d'Arles — 3ème année : Spécialisation Imagerie Numérique — Unity, OpenGL, WebGL" },

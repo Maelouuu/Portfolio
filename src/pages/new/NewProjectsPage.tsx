@@ -302,36 +302,42 @@ const NewProjectsPage = () => {
                   <p className={s.expItemDesc}>{exp.description}</p>
 
                   {/* Jalons clés — extrait des missions */}
-                  <div className={s.expItemSteps}>
-                    <span className={s.expItemStepsLabel}>Jalons</span>
-                    <ul className={s.expStepList}>
-                      {exp.steps.map((step) => (
-                        <li
-                          key={step.label}
-                          className={`${s.expStep} ${step.done ? s.expStepDone : s.expStepPending}`}
-                        >
-                          <span className={s.expStepIcon}>{step.done ? '✓' : '○'}</span>
-                          {step.label}
-                        </li>
+                  {exp.steps && exp.steps.length > 0 && (
+                    <div className={s.expItemSteps}>
+                      <span className={s.expItemStepsLabel}>Jalons</span>
+                      <ul className={s.expStepList}>
+                        {exp.steps.map((step) => (
+                          <li
+                            key={step.label}
+                            className={`${s.expStep} ${step.done ? s.expStepDone : s.expStepPending}`}
+                          >
+                            <span className={s.expStepIcon}>{step.done ? '✓' : '○'}</span>
+                            {step.label}
+                          </li>
+                        ))}
+                        <li className={s.expStepMore}>· · · entre autres</li>
+                      </ul>
+                    </div>
+                  )}
+
+                  {exp.techs && exp.techs.length > 0 && (
+                    <div className={s.expItemTechs}>
+                      {exp.techs.map((t) => (
+                        <span key={t} className={shared.techBadge}>{t}</span>
                       ))}
-                      <li className={s.expStepMore}>· · · entre autres</li>
-                    </ul>
-                  </div>
-
-                  <div className={s.expItemTechs}>
-                    {exp.techs.map((t) => (
-                      <span key={t} className={shared.techBadge}>{t}</span>
-                    ))}
-                  </div>
+                    </div>
+                  )}
                 </div>
 
-                {/* Right: progress bar */}
-                <div className={s.expItemProgress}>
-                  <div className={s.expItemProgressBar}>
-                    <div className={s.expItemProgressFill} style={{ width: `${exp.progress}%` }} />
+                {/* Right: progress bar (optionnel) */}
+                {exp.progress !== undefined && (
+                  <div className={s.expItemProgress}>
+                    <div className={s.expItemProgressBar}>
+                      <div className={s.expItemProgressFill} style={{ width: `${exp.progress}%` }} />
+                    </div>
+                    <span className={s.expItemProgressPct}>{exp.progress}%</span>
                   </div>
-                  <span className={s.expItemProgressPct}>{exp.progress}%</span>
-                </div>
+                )}
               </div>
             ))}
           </div>
