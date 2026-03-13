@@ -461,7 +461,7 @@ const NewAboutPage = () => {
         <FadeSection className={shared.section}>
           <h2 className={`${shared.sectionTitle} ${s.aboutSectionTitle}`}>
             <span className={shared.sectionTitleDot} />
-            \u00C0 propos
+            {'\u00C0'} propos
           </h2>
 
           {/* Pull quote */}
